@@ -5,10 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MovieComponent } from './movie/movie.component';
+import { PeopleComponent } from './people/people.component';
+import { SerieComponent } from './serie/serie.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MovieComponent,
+    PeopleComponent,
+    SerieComponent
   ],
   imports: [
     FormsModule,

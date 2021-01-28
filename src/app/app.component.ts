@@ -1,5 +1,9 @@
-import { AllMovies, Movie } from './models/movie';
+import { RequestApiSerieService } from './services/request-api-serie.service';
+import { RequestApiPeopleService } from './services/request-api-people.service';
 import { RequestApiMoviesService } from './services/request-api-movies.service';
+import { AllMovies, Movie } from './models/movie.model';
+import { AllPeople, People } from './models/people.model';
+import { AllSerie, Serie } from './models/serie.model';
 import { Component, ElementRef, OnInit } from '@angular/core';
 
 @Component({
@@ -11,9 +15,17 @@ export class AppComponent {
   title = 'MovieSearch';
   searchInput: string;
   searching: string;
+
   movies: Movie[];
 
-  constructor(private requestApiMoviesService: RequestApiMoviesService, private el: ElementRef) {
+  peoples: People[];
+
+  series: Serie[];
+
+  constructor(private requestApiMoviesService: RequestApiMoviesService, 
+              private el: ElementRef,
+              private requestApiPeopleService: RequestApiPeopleService,
+              private requestApiSerieService: RequestApiSerieService) {
   }
 
   ngOnInit(): void {
@@ -21,10 +33,15 @@ export class AppComponent {
   }
 
   searchResult() {
-    this.requestApiMoviesService.findAllMoviesByKeyword(this.searchInput, this.searching).subscribe(x => this.movies = x.results )
-    console.log(this.searching);
+    if(this.searching === "movie") {
+      this.requestApiMoviesService.findAllMoviesByKeyword(this.searchInput).subscribe(x => this.movies = x.results )
+    }
+    if (this.searching === "person") {
+      this.requestApiPeopleService.findAllPeopleByKeyword(this.searchInput).subscribe(x => this.peoples = x.results )
+    }
+    
+    if (this.searching === "tv") {
+      this.requestApiSerieService.findAllSerieByKeyword(this.searchInput).subscribe(x => this.series = x.results )
+    }
   }
-
-  
-
 }
