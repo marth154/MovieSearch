@@ -1,8 +1,17 @@
-<h1>Oui</h1>
+<label for="searching">Tu cherches quoi ? </label>
 
-<input [(ngModel)]="searchInput" />
+<select name="searching" id="searching" required [(ngModel)]="searching">
+    <option value="movie" selected="selected">Film</option>
+    <option value="tv">Série</option>
+    <option value="person">Personne</option>
+</select>
 
-<button (click)="searchResult()">Recherche</button>
+<hr>
+
+<input placeholder="Série ou Film" [(ngModel)]="searchInput" type="text"/>
+
+<button (click)="searchResult()" class="btn btn-primary">Recherche</button>
+
 
 <ul>
   <div *ngFor="let movie of movies">

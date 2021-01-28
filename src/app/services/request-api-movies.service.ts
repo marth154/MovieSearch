@@ -8,10 +8,13 @@ import { AllMovies } from '../models/movie';
 })
 export class RequestApiMoviesService {
 
+  readonly apiUrl = 'https://api.themoviedb.org/3/';
+  readonly type = 'movie';
+  readonly key = '89481d4469f0f699ac04327380e53f95';
+
   constructor(private http: HttpClient) { }
 
-  findAllMoviesByKeyword(keyword: string): Observable<AllMovies> {
-    return this.http.get<AllMovies>(`https://api.themoviedb.org/3/search/movie?api_key=89481d4469f0f699ac04327380e53f95&query=${keyword}`)
+  findAllMoviesByKeyword(keyword: string, searching: string): Observable<AllMovies> {
+    return this.http.get<AllMovies>(`${this.apiUrl}search/${searching}?api_key=${this.key}&query=${keyword}`)
   }
-
 }
