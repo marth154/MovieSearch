@@ -12,10 +12,8 @@
 
 <button (click)="searchResult()" class="btn btn-primary">Recherche</button>
 
+<app-movie *ngIf="searching == 'movie'" [movies]="movies"></app-movie>
 
-<ul>
-  <div *ngFor="let movie of movies">
-    <h1>{{ movie.title }}</h1>
-    <h2>{{ movie.popularity }}</h2>
-  </div>
-</ul>
+<app-people *ngIf="searching == 'person'" [peoples]="peoples"></app-people>
+
+<app-serie *ngIf="searching == 'tv'" [series]="series"></app-serie>
