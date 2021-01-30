@@ -1,10 +1,8 @@
+<app-serie-by-id *ngIf="serieById" [serie]="serieById"></app-serie-by-id>
+
 <div *ngFor="let serie of series">
-    <h1>{{ serie.name }}</h1>
-    <h2>{{ serie.popularity }}</h2>
-
-    <p>{{ serie.overview}}</p>
-
-    <img *ngIf="serie.poster_path" 
+    <img (click)="IsClick(serie.id)"*ngIf="serie.poster_path" 
     src="https://image.tmdb.org/t/p/w440_and_h660_face{{serie.poster_path}}" 
     [alt]="serie.poster_path">
+    <hr>
 </div>

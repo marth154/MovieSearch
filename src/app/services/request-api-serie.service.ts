@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AllSeries, Serie } from '../model/series.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +15,9 @@ export class RequestApiSerieService {
 
   findAllSerieByKeyword(keyword: string): Observable<AllSeries> {
     return this.http.get<AllSeries>(`${this.apiUrl}search/tv?api_key=${this.key}&query=${keyword}`)
+  }
+
+  findSerieById(id: number): Observable<Serie> {
+    return this.http.get<Serie>(`${this.apiUrl}tv/${id}?api_key=${this.key}`) 
   }
 }

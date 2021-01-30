@@ -1,9 +1,9 @@
 import { RequestApiSerieService } from './services/request-api-serie.service';
 import { RequestApiPeopleService } from './services/request-api-people.service';
 import { RequestApiMoviesService } from './services/request-api-movies.service';
-import { AllMovies, Movie, Movies } from './model/movie.model';
+import { AllMovies, Movie } from './model/movie.model';
 import { AllPeople, People } from './model/people.model';
-import { AllSerie, Serie } from './model/series.model';
+import { AllSeries, Serie } from './model/series.model';
 import { Component, ElementRef, OnInit } from '@angular/core';
 
 @Component({
@@ -16,7 +16,7 @@ export class AppComponent {
   searchInput: string;
   searching: string;
 
-  movies: Movies[];
+  movies: Movie[];
 
   peoples: People[];
 
