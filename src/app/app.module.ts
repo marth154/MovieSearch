@@ -8,13 +8,19 @@ import { FormsModule } from '@angular/forms';
 import { MovieComponent } from './movie/movie.component';
 import { PeopleComponent } from './people/people.component';
 import { SerieComponent } from './serie/serie.component';
+import { HeurePipe } from './pipes/heure.pipe';
+import { NotePipe } from './pipes/note.pipe';
+import { MovieByIdComponent } from './movie-by-id/movie-by-id.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieComponent,
     PeopleComponent,
-    SerieComponent
+    SerieComponent,
+    HeurePipe,
+    NotePipe,
+    MovieByIdComponent
   ],
   imports: [
     FormsModule,

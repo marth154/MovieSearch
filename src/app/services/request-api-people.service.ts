@@ -1,4 +1,4 @@
-import { AllPeople } from './../models/people.model';
+import { AllPeople } from '../model/people.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';

@@ -1,16 +1,10 @@
-<div *ngFor="let movie of movies">   
-  
-    <h1>{{ movie.title }}</h1>
-    <h2>{{ movie.popularity }}</h2>
-    <p>{{ movie.overview }}</p>
+<app-movie-by-id *ngIf="movieById" [movie]="movieById"></app-movie-by-id>
 
-    <img *ngIf="movie.poster_path" 
+<div *ngFor="let movie of movies">   
+    <img (click)="IsClick(movie.id)" *ngIf="movie.poster_path" 
     src="https://image.tmdb.org/t/p/w440_and_h660_face{{movie.poster_path}}" 
     [alt]="movie.poster_path">
-    
-    <div>
-      <img *ngIf="movie.adult" alt="adult" src="../../assets/PEGI_18.svg.png" style="width:50px;"/>
-    </div>
-
     <hr>
 </div>
+
+
