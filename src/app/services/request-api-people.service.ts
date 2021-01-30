@@ -1,3 +1,4 @@
+import { People } from './../model/people.model';
 import { AllPeople } from '../model/people.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -15,5 +16,9 @@ export class RequestApiPeopleService {
 
   findAllPeopleByKeyword(keyword: string): Observable<AllPeople> {
     return this.http.get<AllPeople>(`${this.apiUrl}search/person?api_key=${this.key}&query=${keyword}`)
+  }
+
+  findPeopleById(id: number): Observable<People> {
+    return this.http.get<People>(`${this.apiUrl}person/${id}?api_key=${this.key}`) 
   }
 }

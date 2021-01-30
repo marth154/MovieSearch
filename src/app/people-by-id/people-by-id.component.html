@@ -1,0 +1,21 @@
+<div *ngIf="people.known_for">
+    <ul *ngFor="let known_for of people.known_for">
+        <li>
+            <span *ngIf="known_for.original_title">{{ known_for.original_title }}</span>
+            <span *ngIf="known_for.original_name">{{ known_for.original_name }}</span>
+            / {{ known_for.media_type }}
+        </li>
+    </ul>
+</div>
+
+<ul *ngFor="let know_as of people.also_known_as">
+    <li>{{know_as}}</li>
+</ul>
+
+<p>{{people.biography}}</p>
+
+<p>Anniversaire {{people.birthday | date: 'dd/MM/yyyy' }}</p>
+
+<p *ngIf="people.deathday">Mort le : {{people.deathday}}</p>
+
+<h2>{{ people.popularity }}</h2>

@@ -14,6 +14,13 @@ export interface People {
   name: string;
   popularity: number;
   profile_path?: string;
+  also_known_as: string[];
+  biography: string;
+  birthday: string;
+  deathday?: any;
+  homepage?: any;
+  imdb_id: string;
+  place_of_birth: string;
 }
 
 export interface Knownfor {
