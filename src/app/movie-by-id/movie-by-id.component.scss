@@ -1,0 +1,23 @@
+.star-average-five{
+    width:20px; 
+}
+
+.star-average-four{
+    width:20px; 
+    clip-path: polygon(50% 0%, 61% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.star-average-tree{
+    width:20px; 
+    clip-path: polygon(50% 0%, 61% 35%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.star-average-two{
+    width:20px; 
+    clip-path: polygon(50% 0%, 61% 35%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.star-average-one{
+    width:20px; 
+    clip-path: polygon(50% 0%, 61% 35%, 39% 35%);
+}
