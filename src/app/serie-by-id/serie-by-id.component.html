@@ -1,0 +1,70 @@
+<p>{{serie.name}}</p>
+
+<img *ngIf="serie.poster_path" 
+        src="https://image.tmdb.org/t/p/w440_and_h660_face{{serie.poster_path}}" 
+        [alt]="serie.poster_path">
+
+<p>{{serie.overview}}</p>
+
+<p>Creer par:</p>
+<ul *ngFor="let created of serie.created_by">
+    <li>
+        {{created.name}} 
+        <img *ngIf="created.profile_path" 
+        src="https://image.tmdb.org/t/p/w440_and_h660_face{{created.profile_path}}" 
+        [alt]="created.profile_path">
+    </li>
+</ul>
+
+<p>Premier episode sortie {{serie.first_air_date}}</p>
+
+<p>Nombre de saison {{serie.number_of_episodes}}, nombre d'episode {{serie.number_of_seasons}}</p>
+
+<p>Genre: </p>
+<ul *ngFor="let genre of serie.genres">
+    <li>{{genre.name}}</li>
+</ul>
+
+<a [href]="serie.homepage">Site de {{serie.name}}</a>
+
+<p *ngIf="serie.in_production">En cours de tournage</p>
+
+<div *ngIf="serie.last_episode_to_air">
+    <p>Derniere sorte: {{serie.last_episode_to_air.air_date | date: 'dd/MM/yyyy' }}</p>
+    <p>Derniere episode: {{serie.last_episode_to_air.episode_number }} de la saison {{serie.last_episode_to_air.season_number}}</p>
+    <p>Nom du derniere episode: {{serie.last_episode_to_air.name}}</p>
+    <p>Description: {{serie.last_episode_to_air.overview}}</p>
+</div>
+
+<p *ngIf="serie.next_episode_to_air">Prochaine episode le {{serie.next_episode_to_air}}</p>
+
+<p>Disponible sur:</p>
+<ul *ngFor="let networks of serie.networks">
+    <li>
+        {{networks.name}}
+        <img *ngIf="networks.logo_path" 
+        src="https://image.tmdb.org/t/p/w440_and_h660_face{{networks.logo_path}}" 
+        [alt]="networks.logo_path">
+    </li>
+</ul>
+
+<p>Produit par:</p>
+<ul *ngFor="let production_companies of serie.production_companies">
+    <li>{{production_companies.name}}</li>
+</ul>
+<ul *ngFor="let production_countries of serie.production_countries">
+    <li>{{production_countries.name}}</li>
+</ul>
+
+
+<p>Saisons: </p>
+<ul *ngFor="let seasons of serie.seasons">
+    <li>
+        <p>{{seasons.name}}</p>
+        <p>Sortie le:{{seasons.air_date | date: 'dd/MM/yyyy' }}</p>
+        <p>Nombre d'episode: {{seasons.episode_count}}</p>
+    </li>
+</ul>
+
+<p>Note: </p>
+<p>{{serie.vote_average}}</p>
