@@ -1,3 +1,5 @@
+import { RequestApiPeopleService } from './../services/request-api-people.service';
+import { People } from './../model/people.model';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -8,10 +10,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PeopleComponent implements OnInit {
 
   @Input() peoples: object;
+
+  peopleById: People;
   
-  constructor() { }
+  constructor(private requestApiPeopleService: RequestApiPeopleService) { }
 
   ngOnInit(): void {
   }
+
+  IsClick(id:number) {
+    this.requestApiPeopleService.findPeopleById(id).subscribe(people => {this.peopleById = people;});
+  }  
 
 }

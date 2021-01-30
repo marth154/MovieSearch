@@ -1,16 +1,10 @@
+<app-people-by-id *ngIf="peopleById" [people]="peopleById"></app-people-by-id>
+
 <div *ngFor="let people of peoples">
     <h1>{{ people.name }}</h1>
-    <h2>{{ people.popularity }}</h2>
 
-    <img *ngIf="people.profile_path" 
+    <img (click)="IsClick(people.id)" *ngIf="people.profile_path" 
     src="https://image.tmdb.org/t/p/w440_and_h660_face{{people.profile_path}}" 
     [alt]="people.profile_path">
-
-    <ul *ngFor="let known_for of people.known_for">
-        <li>
-            <span *ngIf="known_for.original_title">{{ known_for.original_title }}</span>
-            <span *ngIf="known_for.original_name">{{ known_for.original_name }}</span>
-            / {{ known_for.media_type }}
-        </li>
-    </ul>
+    <hr>
 </div>

@@ -12,6 +12,7 @@ import { HeurePipe } from './pipes/heure.pipe';
 import { NotePipe } from './pipes/note.pipe';
 import { MovieByIdComponent } from './movie-by-id/movie-by-id.component';
 import { SerieByIdComponent } from './serie-by-id/serie-by-id.component';
+import { PeopleByIdComponent } from './people-by-id/people-by-id.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SerieByIdComponent } from './serie-by-id/serie-by-id.component';
     HeurePipe,
     NotePipe,
     MovieByIdComponent,
-    SerieByIdComponent
+    SerieByIdComponent,
+    PeopleByIdComponent
   ],
   imports: [
     FormsModule,
