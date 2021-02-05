@@ -14,7 +14,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 export class AppComponent {
   title = 'MovieSearch';
   searchInput: string;
-  searching: string;
+  searching: string = 'movie';
 
   movies: Movie[];
 
@@ -28,9 +28,7 @@ export class AppComponent {
               private el: ElementRef) {
   }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   searchResult() {
     if(this.searching === "movie") {
@@ -39,7 +37,6 @@ export class AppComponent {
     if (this.searching === "person") {
       this.requestApiPeopleService.findAllPeopleByKeyword(this.searchInput).subscribe(x => this.peoples = x.results )
     }
-    
     if (this.searching === "tv") {
       this.requestApiSerieService.findAllSerieByKeyword(this.searchInput).subscribe(x => this.series = x.results )
     }

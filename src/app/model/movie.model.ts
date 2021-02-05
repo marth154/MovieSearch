@@ -10,7 +10,7 @@ export interface Movie {
   backdrop_path: string;
   belongs_to_collection: Belongstocollection;
   budget: number;
-  genres: Genre[];
+  genre_ids: number[];
   homepage: string;
   id: number;
   imdb_id: string;
@@ -49,11 +49,6 @@ export interface Productioncompany {
   logo_path?: string;
   name: string;
   origin_country: string;
-}
-
-export interface Genre {
-  id: number;
-  name: string;
 }
 
 export interface Belongstocollection {

@@ -16,7 +16,7 @@ export class RequestApiMoviesService {
   findAllMoviesByKeyword(keyword: string): Observable<AllMovies> {
     return this.http.get<AllMovies>(`${this.apiUrl}search/movie?api_key=${this.key}&query=${keyword}&include_adult=true`)
   }
-
+  
   findMoviesById(id: number): Observable<Movie> {
     return this.http.get<Movie>(`${this.apiUrl}movie/${id}?api_key=${this.key}`) 
   }

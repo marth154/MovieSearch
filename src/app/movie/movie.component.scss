@@ -1,0 +1,81 @@
+.poster {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1.5rem 5rem 1.5rem;
+
+    img {
+        height: 300px;
+        box-shadow: 0px -1px 20px 1px rgb(0 0 0 / 60%);
+    }
+
+    h3 {
+        font-size: .9rem;
+        width: 200px;
+        cursor: pointer;
+    }
+
+    .genre-list{
+        display: flex;
+        flex-wrap: wrap;
+        text-decoration: none;
+        padding: 0;
+        list-style-type: none;
+        color: #9EC6E1;
+        width: 200px;
+        margin: 0;
+    }
+}
+
+.vote {
+    position: absolute;
+    width: 200px;
+    margin-top: -13px;
+
+    p {
+        background-color: #FFB10A;
+        margin: auto;
+        text-align: center;
+        width: 25%;
+        color: white;
+        height: 1.5rem;
+        border-radius: 3rem;
+    }
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }

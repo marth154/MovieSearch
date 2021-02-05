@@ -1,6 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-body {
-    margin-left: 15px;
-    margin-top: 20px;
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #222B31;
+}
+
+a {
+    text-decoration: none;
+}
+
+.total-center {
+    margin: auto;
+}
+
+.vertical-center {
+    margin: auto 0;
+}
+
+.horizontal-center {
+    margin: 0 auto;
+}
+
+.white {
+    color: white;
+}
+
+.bold {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.regular {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.posters-section {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 1.5rem;
 }

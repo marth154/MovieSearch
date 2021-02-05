@@ -1,4 +1,4 @@
-<label for="searching">Tu cherches quoi ? </label>
+<!-- <label for="searching">Tu cherches quoi ? </label>
 
 <select name="searching" id="searching" required [(ngModel)]="searching">
     <option value="movie" selected="selected">Film</option>
@@ -16,4 +16,41 @@
 
 <app-people *ngIf="searching == 'person'" [peoples]="peoples"></app-people>
 
-<app-serie *ngIf="searching == 'tv'" [series]="series"></app-serie>
+<app-serie *ngIf="searching == 'tv'" [series]="series"></app-serie> -->
+
+<header>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a class="total-center" href="/"><h1 class="white bold">📺 Netflux</h1></a>
+        </div>
+        <div class="navbar-right">
+            <div class="vertical-center">
+                <i class="fas fa-search" (click)="searchResult()"></i>
+                <input id="search-input" class="navbar-search regular white" placeholder="Rechercher un(e) série/film/personne" [(ngModel)]="searchInput" type="text" 
+                (keyup.enter)="searchResult()"
+                />
+                <select class="search-option" name="searching" id="searching" required [(ngModel)]="searching">
+                    <option value="movie">Film</option>
+                    <option value="tv">Série</option>
+                    <option value="person">Personne</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="content">
+    <div class="left-section">
+
+    </div>
+
+    <div class="right-section">
+        <h2 class="white regular">Tendances du moment</h2>
+        <app-movie class="posters-section" *ngIf="searching == 'movie'" [movies]="movies"></app-movie>
+    </div>
+
+</section>
+
+<script>
+
+</script>

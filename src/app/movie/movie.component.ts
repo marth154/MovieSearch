@@ -1,4 +1,6 @@
-import { Movie } from './../models/movie.model';
+import { Genre } from './../model/series.model';
+import { RequestApiGenresService } from './../services/request-api-genres.service';
+import { Movie } from '../model/movie.model';
 import { RequestApiMoviesService } from './../services/request-api-movies.service';
 
 import { Component, Input, OnInit } from '@angular/core';
@@ -15,14 +17,24 @@ export class MovieComponent implements OnInit {
   pegi18: string = "../../assets/PEGI_18.svg.png";
 
   movieById: Movie;
+  genresMovie: Genre[];
 
-  constructor(private requestApiMoviesService: RequestApiMoviesService) { }
+  constructor(private requestApiMoviesService: RequestApiMoviesService, private requestApiGenresService: RequestApiGenresService ) { }
 
   ngOnInit(): void {
-    
+    this.requestApiGenresService.findAllGenresMovie().subscribe(genresMovie => {this.genresMovie = genresMovie.genres;});
   }
 
-  IsClick(id:number) {
+  openModalInformation(id:number) {
     this.requestApiMoviesService.findMoviesById(id).subscribe(movie => {this.movieById = movie;});
-  }  
+
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+  }
+  
+  closeModalInformation(id:number) {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+  }
+
 }

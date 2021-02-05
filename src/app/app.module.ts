@@ -13,6 +13,7 @@ import { NotePipe } from './pipes/note.pipe';
 import { MovieByIdComponent } from './movie-by-id/movie-by-id.component';
 import { SerieByIdComponent } from './serie-by-id/serie-by-id.component';
 import { PeopleByIdComponent } from './people-by-id/people-by-id.component';
+import { MapGenrePipe } from './pipes/map-genre.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PeopleByIdComponent } from './people-by-id/people-by-id.component';
     NotePipe,
     MovieByIdComponent,
     SerieByIdComponent,
-    PeopleByIdComponent
+    PeopleByIdComponent,
+    MapGenrePipe,
   ],
   imports: [
     FormsModule,
