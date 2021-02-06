@@ -58,4 +58,19 @@ export class AppComponent {
     this.requestApiMoviesService.getUpcomingMovies().subscribe(x => this.movies = x.results )
   }
 
+  getPopularSeries() {
+    this.requestApiSerieService.getPopularSeries().subscribe(x => this.series = x.results )
+  }
+
+  getTopRatedSeries() {
+    this.requestApiSerieService.getTopRatedSeries().subscribe(x => this.series = x.results )
+  }
+
+  getAiringTodaySeries() {
+    this.requestApiSerieService.getAiringTodaySeries().subscribe(x => this.series = x.results )
+  }
+
+  getAiringNowSeries() {
+    this.requestApiSerieService.getAiringNowSeries().subscribe(x => this.series = x.results )
+  }
 }

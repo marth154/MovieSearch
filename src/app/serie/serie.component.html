@@ -1,8 +1,23 @@
-<app-serie-by-id *ngIf="serieById" [serie]="serieById"></app-serie-by-id>
-
-<div *ngFor="let serie of series">
-    <img (click)="IsClick(serie.id)"*ngIf="serie.poster_path" 
+<div class="poster" *ngFor="let serie of series">
+    <div class="vote" *ngIf="serie.vote_average">
+        <p class="regular">{{ serie.vote_average }}</p>
+    </div>   
+    <img *ngIf="serie.poster_path; else imgNotAvailable" 
     src="https://image.tmdb.org/t/p/w440_and_h660_face{{serie.poster_path}}" 
     [alt]="serie.poster_path">
-    <hr>
+    <ng-template #imgNotAvailable><img src="http://www.movienewz.com/img/films/poster-holder.jpg" 
+        alt="poster-not-available"></ng-template>
+    <h3 (click)="openModalInformation(serie.id)" class="white bold" onclick="disableScroll()">{{ serie.name }} ></h3>
+    <ul class="genre-list">
+        <li class="regular" *ngFor="let i of serie.genre_ids">{{ genresSerie | mapGenre: i }},&nbsp;</li>
+    </ul>
+</div>
+
+<div id="myModal" class="modal">
+
+    <div class="modal-content">
+      <span (click)="closeModalInformation()" class="close" onclick="enableScroll()">&times;</span>
+      <app-serie-by-id class="card-template" *ngIf="serieById" [serie]="serieById"></app-serie-by-id>
+    </div>
+
 </div>

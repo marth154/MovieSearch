@@ -16,4 +16,8 @@ export class RequestApiGenresService {
   findAllGenresMovie(): Observable<AllGenres> {
     return this.http.get<AllGenres>(`${this.apiUrl}genre/movie/list?api_key=${this.key}&language=fr-FR`)
   }
+
+  findAllGenresSeries(): Observable<AllGenres> {
+    return this.http.get<AllGenres>(`${this.apiUrl}genre/tv/list?api_key=${this.key}&language=fr-FR`)
+  }
 }
