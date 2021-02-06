@@ -28,7 +28,9 @@ export class AppComponent {
               private el: ElementRef) {
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getPopularMovies()
+  }
 
   searchResult() {
     if(this.searching === "movie") {

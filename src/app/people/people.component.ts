@@ -23,8 +23,7 @@ export class PeopleComponent implements OnInit {
   }  
 
   openModalInformation(id:number) {
-    this.requestApiPeopleService.findPeopleById(id).subscribe(people => {this.peopleById = people; console.log(this.peopleById);
-    });
+    this.requestApiPeopleService.findPeopleById(id).subscribe(people => {this.peopleById = people;});
     let modal = document.getElementById("myModal");
     modal.style.display = "flex";
     document.body.style.overflowY = "hidden"

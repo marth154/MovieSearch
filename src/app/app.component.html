@@ -46,16 +46,16 @@
         </div>
         <div>
             <div class="left-section-btn">
-                <h3 class="regular" (click)="getPopularMovies()">Populaires</h3>
+                <i class="fas fa-fire"></i><h3 class="regular" (click)="getPopularMovies()"> Populaires</h3>
             </div>
             <div class="left-section-btn">
-                <h3 class="regular" (click)="getTopRatedMovies()">Mieux notés</h3>
+                <i class="fas fa-poll"></i><h3 class="regular" (click)="getTopRatedMovies()"> Mieux notés</h3>
             </div>
             <div class="left-section-btn">
-                <h3 class="regular" (click)="getNowMovies()">A l'affiche</h3>
+                <i class="fas fa-clock"></i><h3 class="regular" (click)="getNowMovies()"> A l'affiche</h3>
             </div>
             <div class="left-section-btn">
-                <h3 class="regular" (click)="getUpcomingMovies()">A venir</h3>
+                <i class="fas fa-calendar-alt"></i><h3 class="regular" (click)="getUpcomingMovies()"> A venir</h3>
             </div>
         </div>
         <div class="left-section-categorie">
@@ -63,16 +63,16 @@
         </div>
         <div>
             <div class="left-section-btn">
-                <h3 class="regular" (click)="getPopularSeries()">Populaires</h3>
+                <i class="fas fa-fire"></i><h3 class="regular" (click)="getPopularSeries()"> Populaires</h3>
             </div>
             <div class="left-section-btn">
-                <h3 class="regular" (click)="getTopRatedSeries()">Mieux notés</h3>
+                <i class="fas fa-poll"></i><h3 class="regular" (click)="getTopRatedSeries()"> Mieux notées</h3>
             </div>
             <div class="left-section-btn">
-                <h3 class="regular" (click)="getAiringTodaySeries()">Diffusé aujourd'hui</h3>
+                <i class="fas fa-clock"></i><h3 class="regular" (click)="getAiringTodaySeries()"> Aujourd'hui</h3>
             </div>
             <div class="left-section-btn">
-                <h3 class="regular" (click)="getAiringNowSeries()">Diffusé cette semaine</h3>
+                <i class="fas fa-calendar-alt"></i><h3 class="regular" (click)="getAiringNowSeries()"> Cette semaine</h3>
             </div>
         </div>
         <div class="left-section-categorie">
@@ -80,13 +80,13 @@
         </div>
         <div>
             <div class="left-section-btn">
-                <h3 class="regular" (click)="getPopularPeoples()">Populaires</h3>
+                <i class="fas fa-fire"></i><h3 class="regular" (click)="getPopularPeoples()"> Populaires</h3>
             </div>
         </div>
     </div>
 
     <div class="right-section">
-        <h2 class="white regular">Tendances du moment</h2>
+        <h2 class="white regular">Recherchez films, séries et acteurs !</h2>
         <app-movie class="posters-section" *ngIf="searching == 'movie'" [movies]="movies"></app-movie>
         <app-serie class="posters-section" *ngIf="searching == 'tv'" [series]="series"></app-serie>
         <app-people class="posters-section" *ngIf="searching == 'person'" [peoples]="peoples"></app-people>
