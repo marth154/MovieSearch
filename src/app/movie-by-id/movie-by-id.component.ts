@@ -26,5 +26,6 @@ export class MovieByIdComponent implements OnInit {
       //this.step = pas;
     }
     //this.average.push(this.movieById.vote_average - this.step);
+
   }
 }

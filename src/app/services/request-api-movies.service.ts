@@ -20,4 +20,20 @@ export class RequestApiMoviesService {
   findMoviesById(id: number): Observable<Movie> {
     return this.http.get<Movie>(`${this.apiUrl}movie/${id}?api_key=${this.key}`) 
   }
+
+  getPopularMovies(): Observable<AllMovies> {
+    return this.http.get<AllMovies>(`${this.apiUrl}movie/popular?api_key=${this.key}`)
+  }
+
+  getTopRatedMovies(): Observable<AllMovies> {
+    return this.http.get<AllMovies>(`${this.apiUrl}movie/top_rated?api_key=${this.key}`)
+  }
+
+  getNowMovies(): Observable<AllMovies> {
+    return this.http.get<AllMovies>(`${this.apiUrl}movie/now_playing?api_key=${this.key}`)
+  }
+  
+  getUpcomingMovies(): Observable<AllMovies> {
+    return this.http.get<AllMovies>(`${this.apiUrl}movie/upcoming?api_key=${this.key}`)
+  }
 }

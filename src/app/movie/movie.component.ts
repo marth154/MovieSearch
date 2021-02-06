@@ -22,19 +22,21 @@ export class MovieComponent implements OnInit {
   constructor(private requestApiMoviesService: RequestApiMoviesService, private requestApiGenresService: RequestApiGenresService ) { }
 
   ngOnInit(): void {
+
     this.requestApiGenresService.findAllGenresMovie().subscribe(genresMovie => {this.genresMovie = genresMovie.genres;});
   }
 
   openModalInformation(id:number) {
     this.requestApiMoviesService.findMoviesById(id).subscribe(movie => {this.movieById = movie;});
-    
-    var modal = document.getElementById("myModal");
+    let modal = document.getElementById("myModal");
     modal.style.display = "flex";
+    document.body.style.overflowY = "hidden"
   }
   
   closeModalInformation() {
-    var modal = document.getElementById("myModal");
+    let modal = document.getElementById("myModal");
     modal.style.display = "none";
+    document.body.style.overflowY = "initial"
   }
 
 }

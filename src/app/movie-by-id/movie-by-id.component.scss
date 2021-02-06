@@ -83,3 +83,30 @@ h3 {
         }
     }
 }
+
+@media screen and (max-width: 1024px) {
+    .card-main-content {
+        display: block;
+
+        .card-poster {
+            display: flex;
+
+            img {
+                width: 100%;
+                max-width: 300px;
+                margin: auto;
+            }
+        }
+
+        .card-description {
+            padding-left: 0;
+            margin-top: 2rem;
+        }
+    }
+}
+
+@media screen and (max-width: 648px) {
+    .card-more-information {
+        display: block;
+    }
+}

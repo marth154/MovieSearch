@@ -41,4 +41,21 @@ export class AppComponent {
       this.requestApiSerieService.findAllSerieByKeyword(this.searchInput).subscribe(x => this.series = x.results )
     }
   }
+
+  getPopularMovies() {
+    this.requestApiMoviesService.getPopularMovies().subscribe(x => this.movies = x.results )
+  }
+
+  getTopRatedMovies() {
+    this.requestApiMoviesService.getTopRatedMovies().subscribe(x => this.movies = x.results )
+  }
+
+  getNowMovies() {
+    this.requestApiMoviesService.getNowMovies().subscribe(x => this.movies = x.results )
+  }
+
+  getUpcomingMovies() {
+    this.requestApiMoviesService.getUpcomingMovies().subscribe(x => this.movies = x.results )
+  }
+
 }

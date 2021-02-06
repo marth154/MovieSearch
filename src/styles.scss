@@ -58,3 +58,9 @@ a {
     width: 200px;
     margin: 0;
 }
+
+@media screen and (max-width: 648px) {
+    .posters-section {
+        justify-content: center;
+    }
+}

@@ -70,6 +70,42 @@ h1 {
     background-color: #191C1F;
     height: 100%;
     position: fixed;
+    display: flex;
+    flex-direction: column;
+
+    .left-section-categorie {
+        display: flex;
+        height: 40px;
+        border: 1px solid #d2d9d9;
+        width: 50%;
+        border-left: 0;
+        border-right: 0;
+        display: flex;
+        margin: 1.5rem auto 0 auto;
+        border-top: 0;
+
+        h2 {
+            font-size: 1rem;
+            margin: auto;
+        }
+    }
+
+    .left-section-btn {
+        width: calc(100% + 1px);
+        height: 40px;
+        display: flex;
+        cursor: pointer;
+
+        h3 {
+            margin: auto;
+            font-size: 1rem;
+            color: #f83745;
+        }
+    }
+
+    .left-section-btn.active {
+        background-color: #222b31;
+    }
 }
 
 .right-section {
