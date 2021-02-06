@@ -1,4 +1,4 @@
-<p>{{serie.name}}</p>
+<!-- <p>{{serie.name}}</p>
 
 <img *ngIf="serie.poster_path" 
         src="https://image.tmdb.org/t/p/w440_and_h660_face{{serie.poster_path}}" 
@@ -67,4 +67,57 @@
 </ul>
 
 <p>Note: </p>
-<p>{{serie.vote_average}}</p>
+<p>{{serie.vote_average}}</p> -->
+
+<div class="card-information">
+    <div class="card-top">
+        <div>
+            <h3 class="bold">{{ serie.name }}</h3>
+            <ul class="genre-list"><li class="regular" *ngFor="let genre of serie.genres">{{ genre.name }},&nbsp;</li></ul>
+        </div>
+    </div>
+    <div class="card-main-content">
+        <div class="card-poster">
+            <img *ngIf="serie.poster_path; else imgNotAvailable" 
+            src="https://image.tmdb.org/t/p/w440_and_h660_face{{serie.poster_path}}" 
+            [alt]="serie.poster_path">
+            <ng-template #imgNotAvailable><img src="http://www.serienewz.com/img/films/poster-holder.jpg" 
+                alt="poster-not-available"></ng-template>
+        </div>
+        <div class="card-description">
+            <p class="bold">Description de la série</p>
+            <p class="regular">{{ serie.overview }}</p>
+            <div class="card-more-information">
+                <div>
+                    <p class="bold">Saisons</p>
+                    <p class="regular">{{ serie.number_of_seasons }} saisons</p>
+                </div>
+                <div>
+                    <p class="bold">Episodes</p>
+                    <p class="regular">{{ serie.number_of_episodes }} épisodes</p>
+                </div>
+                <div>
+                    <p class="bold">Durée~ episode</p>
+                    <p class="regular">{{ serie.episode_run_time }} min</p>
+                </div>
+            </div>
+            <div class="card-more-information">
+                <div *ngIf="serie.created_by">
+                    <p class="bold">Créateur</p>
+                    <div class="companies-list">
+                        <p class="regular" *ngFor="let creator of serie.created_by">{{ creator.name }}</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="bold">Dernier épisode</p>
+                    <p class="regular">Le {{ serie.last_air_date | date: 'dd/MM/yyyy' }}</p>
+                </div>
+                <div>
+                    <p class="bold">Etat</p>
+                    <p *ngIf="serie.in_production; else serieFinish" class="regular">En cours</p>
+                    <ng-template #serieFinish><p class="regular">Terminée</p></ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
