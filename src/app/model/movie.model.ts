@@ -1,3 +1,4 @@
+import { Genre } from './series.model';
 export interface AllMovies {
   page: number;
   results: Movie[];
@@ -10,7 +11,8 @@ export interface Movie {
   backdrop_path: string;
   belongs_to_collection: Belongstocollection;
   budget: number;
-  genre_ids: number[];
+  genre_ids?: number[];
+  genres?: Genre[];
   homepage: string;
   id: number;
   imdb_id: string;

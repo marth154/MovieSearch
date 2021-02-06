@@ -27,12 +27,12 @@ export class MovieComponent implements OnInit {
 
   openModalInformation(id:number) {
     this.requestApiMoviesService.findMoviesById(id).subscribe(movie => {this.movieById = movie;});
-
+    
     var modal = document.getElementById("myModal");
-    modal.style.display = "block";
+    modal.style.display = "flex";
   }
   
-  closeModalInformation(id:number) {
+  closeModalInformation() {
     var modal = document.getElementById("myModal");
     modal.style.display = "none";
   }

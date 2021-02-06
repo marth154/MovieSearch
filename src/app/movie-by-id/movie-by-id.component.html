@@ -1,4 +1,4 @@
-<p>{{ movie.title }}</p>
+<!-- <p>{{ movie.title }}</p>
 
 <img *ngIf="movie.poster_path" 
     src="https://image.tmdb.org/t/p/w440_and_h660_face{{movie.poster_path}}" 
@@ -16,12 +16,12 @@
 
 <p>{{ movie.vote_average }}</p>
 
-<!-- <img src="../../assets/star.png" *ngFor="let count of average; let last = last;"
+<img src="../../assets/star.png" *ngFor="let count of average; let last = last;"
 [class.star-average-five]="count >= 1"
 [class.star-average-four]="count < 1 && count >= 0.8"
 [class.star-average-tree]="count < 0.8 && count >= 0.6"
 [class.star-average-two]="count < 0.6 && count >= 0.4"
-[class.star-average-one]="count < 0.4 && count >= 0.2"> -->
+[class.star-average-one]="count < 0.4 && count >= 0.2">
 
 
 <ul *ngFor="let company of movie.production_companies">
@@ -39,4 +39,49 @@
 
 <p>Sortie le {{ movie.release_date | date: 'dd/MM/yyyy' }}</p>
 
-<p>Durée {{ movie.runtime | heure }}</p>
+<p>Durée {{ movie.runtime | heure }}</p> -->
+
+<div class="card-information">
+    <div class="card-top">
+        <div>
+            <h3 class="bold">{{ movie.title }}</h3>
+            <ul class="genre-list"><li class="regular" *ngFor="let genre of movie.genres">{{ genre.name }},&nbsp;</li></ul>
+        </div>
+        <p class="regular adult-content" *ngIf="movie.adult">🛑 Ce film n'est pas destiné à un jeune public</p>
+    </div>
+    <div class="card-main-content">
+        <div class="card-poster">
+            <img *ngIf="movie.poster_path; else imgNotAvailable" 
+            src="https://image.tmdb.org/t/p/w440_and_h660_face{{movie.poster_path}}" 
+            [alt]="movie.poster_path">
+            <ng-template #imgNotAvailable><img src="http://www.movienewz.com/img/films/poster-holder.jpg" 
+                alt="poster-not-available"></ng-template>
+        </div>
+        <div class="card-description">
+            <p class="bold">Description du film</p>
+            <p class="regular">{{ movie.overview }}</p>
+            <div class="card-more-information">
+                <div>
+                    <p class="bold">Durée du film</p>
+                    <p class="regular">{{ movie.runtime }} min</p>
+                </div>
+                <div>
+                    <p class="bold">Date de sortie</p>
+                    <p class="regular">{{ movie.release_date }}</p>
+                </div>
+                <div>
+                    <p class="bold">Revenus</p>
+                    <p class="regular">{{ movie.revenue | currency:'EU' }}</p>
+                </div>
+            </div>
+            <div class="card-companies-info">
+                <div>
+                    <p class="bold">Production</p>
+                    <div class="companies-list">
+                        <p class="regular" *ngFor="let companie of movie.production_companies">{{ companie.name }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

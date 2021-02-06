@@ -17,7 +17,7 @@
 
     <div class="modal-content">
       <span (click)="closeModalInformation()" class="close" onclick="enableScroll()">&times;</span>
-      <app-movie-by-id *ngIf="movieById" [movie]="movieById"></app-movie-by-id>
+      <app-movie-by-id class="card-template" *ngIf="movieById" [movie]="movieById"></app-movie-by-id>
     </div>
   
 </div>

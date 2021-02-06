@@ -47,3 +47,14 @@ a {
     flex-wrap: wrap;
     margin: 0 1.5rem;
 }
+
+.genre-list{
+    display: flex;
+    flex-wrap: wrap;
+    text-decoration: none;
+    padding: 0;
+    list-style-type: none;
+    color: #9EC6E1;
+    width: 200px;
+    margin: 0;
+}
