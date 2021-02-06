@@ -22,4 +22,18 @@ export class PeopleComponent implements OnInit {
     this.requestApiPeopleService.findPeopleById(id).subscribe(people => {this.peopleById = people;});
   }  
 
+  openModalInformation(id:number) {
+    this.requestApiPeopleService.findPeopleById(id).subscribe(people => {this.peopleById = people; console.log(this.peopleById);
+    });
+    let modal = document.getElementById("myModal");
+    modal.style.display = "flex";
+    document.body.style.overflowY = "hidden"
+  }
+  
+  closeModalInformation() {
+    let modal = document.getElementById("myModal");
+    modal.style.display = "none";
+    document.body.style.overflowY = "initial"
+  }
+
 }

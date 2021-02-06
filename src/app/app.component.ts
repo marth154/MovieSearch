@@ -43,34 +43,47 @@ export class AppComponent {
   }
 
   getPopularMovies() {
+    this.searching = "movie";
     this.requestApiMoviesService.getPopularMovies().subscribe(x => this.movies = x.results )
   }
 
   getTopRatedMovies() {
+    this.searching = "movie";
     this.requestApiMoviesService.getTopRatedMovies().subscribe(x => this.movies = x.results )
   }
 
   getNowMovies() {
+    this.searching = "movie";
     this.requestApiMoviesService.getNowMovies().subscribe(x => this.movies = x.results )
   }
 
   getUpcomingMovies() {
+    this.searching = "movie";
     this.requestApiMoviesService.getUpcomingMovies().subscribe(x => this.movies = x.results )
   }
 
   getPopularSeries() {
+    this.searching = "tv";
     this.requestApiSerieService.getPopularSeries().subscribe(x => this.series = x.results )
   }
 
   getTopRatedSeries() {
+    this.searching = "tv";
     this.requestApiSerieService.getTopRatedSeries().subscribe(x => this.series = x.results )
   }
 
   getAiringTodaySeries() {
+    this.searching = "tv";
     this.requestApiSerieService.getAiringTodaySeries().subscribe(x => this.series = x.results )
   }
 
   getAiringNowSeries() {
+    this.searching = "tv";
     this.requestApiSerieService.getAiringNowSeries().subscribe(x => this.series = x.results )
+  }
+
+  getPopularPeoples() {
+    this.searching = "person";
+    this.requestApiPeopleService.getPopularPeople().subscribe(x => this.peoples = x.results )
   }
 }

@@ -1,10 +1,23 @@
-<app-people-by-id *ngIf="peopleById" [people]="peopleById"></app-people-by-id>
-
-<div *ngFor="let people of peoples">
-    <h1>{{ people.name }}</h1>
-
-    <img (click)="IsClick(people.id)" *ngIf="people.profile_path" 
+<div class="poster" *ngFor="let people of peoples; let i = index">
+    <div class="vote" *ngIf="people.popularity">
+        <p class="regular">{{ i+1 }}</p>
+    </div>   
+    <img *ngIf="people.profile_path; else imgNotAvailable" 
     src="https://image.tmdb.org/t/p/w440_and_h660_face{{people.profile_path}}" 
     [alt]="people.profile_path">
-    <hr>
+    <ng-template #imgNotAvailable><img src="https://www.vachamber.com/wp-content/uploads/2018/01/Image-Unavailable.jpg" 
+        alt="poster-not-available"></ng-template>
+    <h3 (click)="openModalInformation(people.id)" class="white bold" onclick="disableScroll()">{{ people.name }} ></h3>
+    <ul class="genre-list">
+        <li class="regular" *ngFor="let i of people.genre_ids">{{ i | mapGenre: i }},&nbsp;</li>
+    </ul>
+</div>
+
+<div id="myModal" class="modal">
+
+    <div class="modal-content">
+      <span (click)="closeModalInformation()" class="close" onclick="enableScroll()">&times;</span>
+      <app-people-by-id class="card-template" *ngIf="peopleById" [people]="peopleById"></app-people-by-id>
+    </div>
+
 </div>

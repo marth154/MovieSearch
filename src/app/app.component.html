@@ -76,20 +76,11 @@
             </div>
         </div>
         <div class="left-section-categorie">
-            <h2 class="white regular">Films</h2>
+            <h2 class="white regular">Acteurs</h2>
         </div>
         <div>
             <div class="left-section-btn">
-                <h3 class="regular" (click)="getPopularMovies()">Populaires</h3>
-            </div>
-            <div class="left-section-btn">
-                <h3 class="regular" (click)="getPopularMovies()">Mieux notés</h3>
-            </div>
-            <div class="left-section-btn">
-                <h3 class="regular" (click)="getPopularMovies()">Dernieres sorties</h3>
-            </div>
-            <div class="left-section-btn">
-                <h3 class="regular" (click)="getPopularMovies()">A l'affiche</h3>
+                <h3 class="regular" (click)="getPopularPeoples()">Populaires</h3>
             </div>
         </div>
     </div>
@@ -98,6 +89,7 @@
         <h2 class="white regular">Tendances du moment</h2>
         <app-movie class="posters-section" *ngIf="searching == 'movie'" [movies]="movies"></app-movie>
         <app-serie class="posters-section" *ngIf="searching == 'tv'" [series]="series"></app-serie>
+        <app-people class="posters-section" *ngIf="searching == 'person'" [peoples]="peoples"></app-people>
     </div>
 
 </section>
