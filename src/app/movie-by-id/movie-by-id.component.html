@@ -46,6 +46,7 @@
         <div>
             <h3 class="bold">{{ movie.title }}</h3>
             <ul class="genre-list"><li class="regular" *ngFor="let genre of movie.genres">{{ genre.name }},&nbsp;</li></ul>
+            <div class="card-note" [innerHtml]="movie.vote_average | note:10"></div>
         </div>
         <p class="regular adult-content" *ngIf="movie.adult">🛑 Ce film n'est pas destiné à un jeune public</p>
     </div>

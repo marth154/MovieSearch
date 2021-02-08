@@ -59,6 +59,18 @@ a {
     margin: 0;
 }
 
+.card-note {
+    margin-top: .5rem;
+
+    i.far{
+        color: #f837457a;
+    }
+
+    i.fas {
+      color: #F83745;
+    }
+}
+
 @media screen and (max-width: 648px) {
     .posters-section {
         justify-content: center;
