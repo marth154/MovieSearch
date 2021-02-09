@@ -29,7 +29,7 @@ export class SerieComponent implements OnInit {
   constructor(private requestApiGenresService: RequestApiGenresService, private requestApiSerieService: RequestApiSerieService) { }
 
   ngOnInit(): void {
-    this.requestApiGenresService.findAllGenresSeries().subscribe((genresSerie: Genre[]) => this.genresSerie = genresSerie);
+    this.requestApiGenresService.findAllGenresSeries().subscribe(x => this.genresSerie = x.genres);
   }
 
   openModalInformation(id:number) {
