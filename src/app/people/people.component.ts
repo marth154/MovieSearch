@@ -16,11 +16,7 @@ export class PeopleComponent implements OnInit {
 
   toggle() {
     this.isOpen = !this.isOpen
-    if (this.isOpen) {
-      document.body.style.overflowY = 'hidden';
-    } else {
-      document.body.style.overflowY = 'initial';
-    }
+    document.body.style.overflowY = this.isOpen ? 'hidden' : 'initial';
   }
 
   constructor(private requestApiPeopleService: RequestApiPeopleService) { }
