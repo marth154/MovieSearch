@@ -64,15 +64,15 @@
             <div class="card-more-information">
                 <div>
                     <p class="bold">Durée du film</p>
-                    <p class="regular">{{ movie.runtime | heure }} min</p>
+                    <p class="regular">{{ movie.runtime }} min</p>
                 </div>
                 <div>
                     <p class="bold">Date de sortie</p>
-                    <p class="regular">Le {{ movie.release_date | date: "d/MM/YYYY" }}</p>
+                    <p class="regular">{{ movie.release_date }}</p>
                 </div>
-                <div *ngIf="movie.revenue != 0">
+                <div>
                     <p class="bold">Revenus</p>
-                    <p class="regular">{{ movie.revenue | currency:'USD': 'symbol' }}</p>
+                    <p class="regular">{{ movie.revenue | currency:'EU' }}</p>
                 </div>
             </div>
             <div class="card-companies-info">

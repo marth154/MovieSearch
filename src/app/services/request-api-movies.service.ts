@@ -18,11 +18,7 @@ export class RequestApiMoviesService {
   }
   
   findMoviesById(id: number): Observable<Movie> {
-    return this.http.get<Movie>(`${this.apiUrl}movie/${id}?api_key=${this.key}&language=fr-FR`) 
-  }
-  
-  findMovieByGenre(id: number): Observable<AllMovies> {
-    return this.http.get<AllMovies>(`${this.apiUrl}discover/movie?api_key=${this.key}&with_genres=${id}`)
+    return this.http.get<Movie>(`${this.apiUrl}movie/${id}?api_key=${this.key}`) 
   }
 
   getPopularMovies(): Observable<AllMovies> {

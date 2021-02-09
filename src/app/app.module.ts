@@ -15,7 +15,6 @@ import { SerieByIdComponent } from './serie-by-id/serie-by-id.component';
 import { PeopleByIdComponent } from './people-by-id/people-by-id.component';
 import { MapGenrePipe } from './pipes/map-genre.pipe';
 
-
 @NgModule({
   declarations: [
     AppComponent,
