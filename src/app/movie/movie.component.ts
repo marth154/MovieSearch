@@ -29,11 +29,11 @@ export class MovieComponent implements OnInit {
   constructor(private requestApiMoviesService: RequestApiMoviesService, private requestApiGenresService: RequestApiGenresService ) { }
 
   ngOnInit(): void {
-    this.requestApiGenresService.findAllGenresMovie().subscribe(genresMovie => {this.genresMovie = genresMovie.genres;});
+    this.requestApiGenresService.findAllGenresMovie().subscribe((genresMovie: Genre[]) => this.genresMovie = genresMovie);
   }
 
   openModalInformation(id: number) {
-    this.requestApiMoviesService.findMoviesById(id).subscribe(movie => {this.movieById = movie;});
+    this.requestApiMoviesService.findMoviesById(id).subscribe((movie: Movie) => this.movieById = movie);
     this.toggle()
   }
   

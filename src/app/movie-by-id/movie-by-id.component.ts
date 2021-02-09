@@ -19,13 +19,7 @@ export class MovieByIdComponent implements OnInit {
   constructor(private requestApiGenresService: RequestApiGenresService) { }
 
   ngOnInit(): void {
-    this.requestApiGenresService.findAllGenresMovie().subscribe(genresMovie => {this.genresMovie = genresMovie.genres;});
-
-    for (let pas = 1; pas < this.movie.vote_average; pas++) {
-      this.average.push(pas);
-      //this.step = pas;
-    }
-    //this.average.push(this.movieById.vote_average - this.step);
-
+    this.requestApiGenresService.findAllGenresMovie().subscribe((genresMovie: Genre[]) => this.genresMovie = genresMovie);
   }
+  
 }

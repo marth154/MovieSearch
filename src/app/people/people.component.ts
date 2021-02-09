@@ -24,12 +24,8 @@ export class PeopleComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  IsClick(id:number) {
-    this.requestApiPeopleService.findPeopleById(id).subscribe(people => {this.peopleById = people;});
-  }  
-
   openModalInformation(id:number) {
-    this.requestApiPeopleService.findPeopleById(id).subscribe(people => {this.peopleById = people;});
+    this.requestApiPeopleService.findPeopleById(id).subscribe((people: People) => this.peopleById = people);
     this.toggle()
   }
   
