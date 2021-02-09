@@ -37,4 +37,8 @@ export class SerieComponent implements OnInit {
     document.body.style.overflowY = "initial"
   }
 
+  searchByGenre(id: number) {
+    this.requestApiSerieService.findSerieByGenre(id).subscribe(x => this.series = x.results)
+  }
+
 }

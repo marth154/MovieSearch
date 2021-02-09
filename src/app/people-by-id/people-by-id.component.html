@@ -41,7 +41,7 @@
             <div class="card-more-information">
                 <div *ngIf="people.birthday">
                     <p class="bold">Date de naissance</p>
-                    <p class="regular">{{ people.birthday }}</p>
+                    <p class="regular">Le {{ people.birthday | date: "d/MM/YYYY" }}</p>
                 </div>
                 <div *ngIf="people.place_of_birth">
                     <p class="bold">Lieu de naissance</p>
