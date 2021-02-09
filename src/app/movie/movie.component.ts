@@ -1,15 +1,15 @@
+import { OpenCloseTransition } from './../transitions/open-close';
 import { Genre } from './../model/series.model';
 import { RequestApiGenresService } from './../services/request-api-genres.service';
 import { Movie } from '../model/movie.model';
 import { RequestApiMoviesService } from './../services/request-api-movies.service';
-
 import { Component, Input, OnInit } from '@angular/core';
-import { log } from 'console';
 
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.scss']
+  styleUrls: ['./movie.component.scss'],
+  animations: [OpenCloseTransition]
 })
 export class MovieComponent implements OnInit {
 

@@ -14,7 +14,7 @@
     </ul>
 </div>
 
-<div id="myModal" class="modal" *ngIf="serieById && isOpen">
+<div class="modal" [@openClose]="isOpen" *ngIf="serieById && isOpen">
 
     <div class="modal-content">
       <span (click)="closeModalInformation()" class="close" onclick="enableScroll()">&times;</span>

@@ -1,11 +1,13 @@
 import { RequestApiPeopleService } from './../services/request-api-people.service';
 import { People } from './../model/people.model';
 import { Component, Input, OnInit } from '@angular/core';
+import { OpenCloseTransition } from '../transitions/open-close';
 
 @Component({
   selector: 'app-people',
   templateUrl: './people.component.html',
-  styleUrls: ['./people.component.scss']
+  styleUrls: ['./people.component.scss'],
+  animations: [OpenCloseTransition]
 })
 export class PeopleComponent implements OnInit {
 

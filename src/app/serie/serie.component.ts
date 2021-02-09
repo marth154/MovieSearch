@@ -3,11 +3,13 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Genre, Serie } from '../model/series.model';
 import { RequestApiMoviesService } from '../services/request-api-movies.service';
 import { RequestApiGenresService } from '../services/request-api-genres.service';
+import { OpenCloseTransition } from '../transitions/open-close';
 
 @Component({
   selector: 'app-serie',
   templateUrl: './serie.component.html',
-  styleUrls: ['./serie.component.scss']
+  styleUrls: ['./serie.component.scss'],
+  animations: [OpenCloseTransition]
 })
 export class SerieComponent implements OnInit {
 

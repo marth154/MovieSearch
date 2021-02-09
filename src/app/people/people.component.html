@@ -13,7 +13,7 @@
     </ul>
 </div>
 
-<div id="myModal" class="modal" *ngIf="peopleById && isOpen">
+<div class="modal" [@openClose]="isOpen" *ngIf="peopleById && isOpen">
 
     <div class="modal-content">
       <span (click)="closeModalInformation()" class="close">&times;</span>
