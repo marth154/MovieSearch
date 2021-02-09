@@ -41,8 +41,4 @@ export class SerieComponent implements OnInit {
     this.toggle();
   }
 
-  searchByGenre(id: number) {
-    this.requestApiSerieService.findSerieByGenre(id).subscribe(x => this.series = x.results)
-  }
-
 }

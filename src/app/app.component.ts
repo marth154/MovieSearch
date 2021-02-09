@@ -1,5 +1,3 @@
-import { Observable } from 'rxjs';
-import { RequestApiGenresService } from './services/request-api-genres.service';
 import { RequestApiSerieService } from './services/request-api-serie.service';
 import { RequestApiPeopleService } from './services/request-api-people.service';
 import { RequestApiMoviesService } from './services/request-api-movies.service';
@@ -7,7 +5,6 @@ import { AllMovies, Movie } from './model/movie.model';
 import { AllPeople, People } from './model/people.model';
 import { AllSeries, Serie } from './model/series.model';
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { Genre, AllGenres } from './model/genres.model';
 
 @Component({
   selector: 'app-root',
@@ -26,12 +23,9 @@ export class AppComponent {
 
   series: Serie[];
 
-  genres: Genre[];
-
   constructor(private requestApiMoviesService: RequestApiMoviesService, 
               private requestApiPeopleService: RequestApiPeopleService,
               private requestApiSerieService: RequestApiSerieService,
-              private requestApiGenresService: RequestApiGenresService,
               private el: ElementRef) {
   }
 
