@@ -15,6 +15,7 @@ export class AppComponent {
   title = 'MovieSearch';
   searchInput: string;
   searching: string = 'movie';
+  activeSearch: string;
 
   movies: Movie[];
 
@@ -29,63 +30,73 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    this.getPopularMovies()
+    this.getPopularMovies();
   }
 
   searchResult() {
+    this.activeSearch = "";
     if(this.searching === "movie") {
-      this.requestApiMoviesService.findAllMoviesByKeyword(this.searchInput).subscribe(x => this.movies = x.results )
+      this.requestApiMoviesService.findAllMoviesByKeyword(this.searchInput).subscribe((movies: Movie[]) => this.movies = movies)
     }
     if (this.searching === "person") {
-      this.requestApiPeopleService.findAllPeopleByKeyword(this.searchInput).subscribe(x => this.peoples = x.results )
+      this.requestApiPeopleService.findAllPeopleByKeyword(this.searchInput).subscribe((peoples: People[]) => this.peoples = peoples)
     }
     if (this.searching === "tv") {
-      this.requestApiSerieService.findAllSerieByKeyword(this.searchInput).subscribe(x => this.series = x.results )
+      this.requestApiSerieService.findAllSerieByKeyword(this.searchInput).subscribe((series: Serie[]) => this.series = series)
     }
   }
 
   getPopularMovies() {
     this.searching = "movie";
-    this.requestApiMoviesService.getPopularMovies().subscribe(x => this.movies = x.results )
+    this.activeSearch = "popularMovies";
+    this.requestApiMoviesService.getPopularMovies().subscribe((movies: Movie[]) => this.movies = movies)
   }
 
   getTopRatedMovies() {
     this.searching = "movie";
-    this.requestApiMoviesService.getTopRatedMovies().subscribe(x => this.movies = x.results )
+    this.activeSearch = "topRatedMovies";
+    this.requestApiMoviesService.getTopRatedMovies().subscribe((movies: Movie[]) => this.movies = movies)
   }
 
   getNowMovies() {
     this.searching = "movie";
-    this.requestApiMoviesService.getNowMovies().subscribe(x => this.movies = x.results )
+    this.activeSearch = "nowMovies";
+    this.requestApiMoviesService.getNowMovies().subscribe((movies: Movie[]) => this.movies = movies)
   }
 
   getUpcomingMovies() {
     this.searching = "movie";
-    this.requestApiMoviesService.getUpcomingMovies().subscribe(x => this.movies = x.results )
+    this.activeSearch = "upcomingMovies";
+    this.requestApiMoviesService.getUpcomingMovies().subscribe((movies: Movie[]) => this.movies = movies)
   }
 
   getPopularSeries() {
     this.searching = "tv";
-    this.requestApiSerieService.getPopularSeries().subscribe(x => this.series = x.results )
+    this.activeSearch = "popularSeries";
+    this.requestApiSerieService.getPopularSeries().subscribe((series: Serie[]) => this.series = series)
   }
 
   getTopRatedSeries() {
     this.searching = "tv";
-    this.requestApiSerieService.getTopRatedSeries().subscribe(x => this.series = x.results )
+    this.activeSearch = "topRatedSeries";
+    this.requestApiSerieService.getTopRatedSeries().subscribe((series: Serie[]) => this.series = series)
   }
 
   getAiringTodaySeries() {
     this.searching = "tv";
-    this.requestApiSerieService.getAiringTodaySeries().subscribe(x => this.series = x.results )
+    this.activeSearch = "airingTodaySeries";
+    this.requestApiSerieService.getAiringTodaySeries().subscribe((series: Serie[]) => this.series = series)
   }
 
   getAiringNowSeries() {
     this.searching = "tv";
-    this.requestApiSerieService.getAiringNowSeries().subscribe(x => this.series = x.results )
+    this.activeSearch = "airingNowSeries";
+    this.requestApiSerieService.getAiringNowSeries().subscribe((series: Serie[]) => this.series = series)
   }
 
   getPopularPeoples() {
     this.searching = "person";
-    this.requestApiPeopleService.getPopularPeople().subscribe(x => this.peoples = x.results )
+    this.activeSearch = "popularPeoples";
+    this.requestApiPeopleService.getPopularPeople().subscribe((peoples: People[]) => this.peoples = peoples)
   }
 }
