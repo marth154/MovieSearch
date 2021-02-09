@@ -21,7 +21,7 @@ export class RequestApiPeopleService {
   }
 
   findPeopleById(id: number): Observable<People> {
-    return this.http.get<People>(`${this.apiUrl}person/${id}?api_key=${this.key}`) 
+    return this.http.get<People>(`${this.apiUrl}person/${id}?api_key=${this.key}&language=fr-FR`) 
   }
 
   getPopularPeople(): Observable<People[]> {

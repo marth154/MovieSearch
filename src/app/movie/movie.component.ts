@@ -41,4 +41,8 @@ export class MovieComponent implements OnInit {
     this.toggle()
   }
 
+  searchByGenre(id: number) {
+    this.requestApiMoviesService.findMovieByGenre(id).subscribe(x => this.movies = x.results)
+  }
+
 }

@@ -14,13 +14,13 @@ export class RequestApiGenresService {
 
   constructor(private http: HttpClient) { }
 
-  findAllGenresMovie(): Observable<Genre[]> {
+  findAllGenresMovie(): Observable<AllGenres> {
     return this.http.get<AllGenres>(`${this.apiUrl}genre/movie/list?api_key=${this.key}&language=fr-FR`).pipe(
       map((allGenres: AllGenres) => allGenres.genres)
     )
   }
 
-  findAllGenresSeries(): Observable<Genre[]> {
+  findAllGenresSeries(): Observable<AllGenres> {
     return this.http.get<AllGenres>(`${this.apiUrl}genre/tv/list?api_key=${this.key}&language=fr-FR`).pipe(
       map((allGenres: AllGenres) => allGenres.genres)
     )

@@ -21,7 +21,11 @@ export class RequestApiSerieService {
   }
 
   findSerieById(id: number): Observable<Serie> {
-    return this.http.get<Serie>(`${this.apiUrl}tv/${id}?api_key=${this.key}`) 
+    return this.http.get<Serie>(`${this.apiUrl}tv/${id}?api_key=${this.key}&language=fr-FR`) 
+  }
+
+  findSerieByGenre(id: number): Observable<AllSeries> {
+    return this.http.get<AllSeries>(`${this.apiUrl}discover/tv?api_key=${this.key}&with_genres=${id}`)
   }
 
   getPopularSeries(): Observable<Serie[]>{

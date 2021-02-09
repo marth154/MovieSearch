@@ -1,3 +1,10 @@
+<ul *ngFor="let item of genresMovie" id="menuItem">
+    <li class="left-section-btn" id="items" (click)="searchByGenre(item.id)">
+        <h3 class="regular">{{ item.name }}</h3>
+    </li>
+</ul>
+
+
 <div class="poster" *ngFor="let movie of movies">
     <div class="vote" *ngIf="movie.vote_average">
         <p class="regular">{{ movie.vote_average }}</p>
