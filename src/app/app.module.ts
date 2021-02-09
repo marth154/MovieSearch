@@ -14,6 +14,7 @@ import { MovieByIdComponent } from './movie-by-id/movie-by-id.component';
 import { SerieByIdComponent } from './serie-by-id/serie-by-id.component';
 import { PeopleByIdComponent } from './people-by-id/people-by-id.component';
 import { MapGenrePipe } from './pipes/map-genre.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MapGenrePipe } from './pipes/map-genre.pipe';
     FormsModule,
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

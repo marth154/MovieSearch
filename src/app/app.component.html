@@ -45,42 +45,42 @@
             <h2 class="white bold">Films</h2>
         </div>
         <div>
-            <div class="left-section-btn">
-                <i class="fas fa-fire"></i><h3 class="regular" (click)="getPopularMovies()"> Populaires</h3>
+            <div class="left-section-btn" [ngClass]="{'active': activeSearch === 'popularMovies'}" (click)="getPopularMovies()">
+                <i class="fas fa-fire"></i><h3 class="regular"> Populaires</h3>
             </div>
-            <div class="left-section-btn">
-                <i class="fas fa-poll"></i><h3 class="regular" (click)="getTopRatedMovies()"> Mieux notés</h3>
+            <div class="left-section-btn" [ngClass]="{'active': activeSearch === 'topRatedMovies'}" (click)="getTopRatedMovies()">
+                <i class="fas fa-poll"></i><h3 class="regular"> Mieux notés</h3>
             </div>
-            <div class="left-section-btn">
-                <i class="fas fa-clock"></i><h3 class="regular" (click)="getNowMovies()"> A l'affiche</h3>
+            <div class="left-section-btn" [ngClass]="{'active': activeSearch === 'nowMovies'}" (click)="getNowMovies()">
+                <i class="fas fa-clock"></i><h3 class="regular"> A l'affiche</h3>
             </div>
-            <div class="left-section-btn">
-                <i class="fas fa-calendar-alt"></i><h3 class="regular" (click)="getUpcomingMovies()"> A venir</h3>
+            <div class="left-section-btn" [ngClass]="{'active': activeSearch === 'upcomingMovies'}" (click)="getUpcomingMovies()">
+                <i class="fas fa-calendar-alt"></i><h3 class="regular"> A venir</h3>
             </div>
         </div>
         <div class="left-section-categorie">
             <h2 class="white regular">Séries</h2>
         </div>
         <div>
-            <div class="left-section-btn">
-                <i class="fas fa-fire"></i><h3 class="regular" (click)="getPopularSeries()"> Populaires</h3>
+            <div class="left-section-btn" [ngClass]="{'active': activeSearch === 'popularSeries'}" (click)="getPopularSeries()">
+                <i class="fas fa-fire"></i><h3 class="regular"> Populaires</h3>
             </div>
-            <div class="left-section-btn">
-                <i class="fas fa-poll"></i><h3 class="regular" (click)="getTopRatedSeries()"> Mieux notées</h3>
+            <div class="left-section-btn" [ngClass]="{'active': activeSearch === 'topRatedSeries'}" (click)="getTopRatedSeries()">
+                <i class="fas fa-poll"></i><h3 class="regular"> Mieux notées</h3>
             </div>
-            <div class="left-section-btn">
-                <i class="fas fa-clock"></i><h3 class="regular" (click)="getAiringTodaySeries()"> Aujourd'hui</h3>
+            <div class="left-section-btn" [ngClass]="{'active': activeSearch === 'airingTodaySeries'}" (click)="getAiringTodaySeries()">
+                <i class="fas fa-clock"></i><h3 class="regular"> Aujourd'hui</h3>
             </div>
-            <div class="left-section-btn">
-                <i class="fas fa-calendar-alt"></i><h3 class="regular" (click)="getAiringNowSeries()"> Cette semaine</h3>
+            <div class="left-section-btn" [ngClass]="{'active': activeSearch === 'airingNowSeries'}" (click)="getAiringNowSeries()">
+                <i class="fas fa-calendar-alt"></i><h3 class="regular"> Cette semaine</h3>
             </div>
         </div>
         <div class="left-section-categorie">
             <h2 class="white regular">Acteurs</h2>
         </div>
         <div>
-            <div class="left-section-btn">
-                <i class="fas fa-fire"></i><h3 class="regular" (click)="getPopularPeoples()"> Populaires</h3>
+            <div class="left-section-btn" [ngClass]="{'active': activeSearch === 'popularPeoples'}" (click)="getPopularPeoples()">
+                <i class="fas fa-fire"></i><h3 class="regular"> Populaires</h3>
             </div>
         </div>
     </div>

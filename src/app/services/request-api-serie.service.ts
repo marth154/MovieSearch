@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { AllSeries, Serie } from '../model/series.model';
 
 @Injectable({
@@ -13,8 +14,10 @@ export class RequestApiSerieService {
 
   constructor(private http: HttpClient) { }
 
-  findAllSerieByKeyword(keyword: string): Observable<AllSeries> {
-    return this.http.get<AllSeries>(`${this.apiUrl}search/tv?api_key=${this.key}&query=${keyword}`)
+  findAllSerieByKeyword(keyword: string): Observable<Serie[]> {
+    return this.http.get<AllSeries>(`${this.apiUrl}search/tv?api_key=${this.key}&query=${keyword}`).pipe(
+      map((allSeries: AllSeries) => allSeries.results)
+    )
   }
 
   findSerieById(id: number): Observable<Serie> {
@@ -25,19 +28,27 @@ export class RequestApiSerieService {
     return this.http.get<AllSeries>(`${this.apiUrl}discover/tv?api_key=${this.key}&with_genres=${id}`)
   }
 
-  getPopularSeries(): Observable<AllSeries>{
-    return this.http.get<AllSeries>(`${this.apiUrl}tv/popular?api_key=${this.key}`)
+  getPopularSeries(): Observable<Serie[]>{
+    return this.http.get<AllSeries>(`${this.apiUrl}tv/popular?api_key=${this.key}`).pipe(
+      map((allSeries: AllSeries) => allSeries.results)
+    )
   }
 
-  getTopRatedSeries(): Observable<AllSeries>{
-    return this.http.get<AllSeries>(`${this.apiUrl}tv/top_rated?api_key=${this.key}`)
+  getTopRatedSeries(): Observable<Serie[]>{
+    return this.http.get<AllSeries>(`${this.apiUrl}tv/top_rated?api_key=${this.key}`).pipe(
+      map((allSeries: AllSeries) => allSeries.results)
+    )
   }
 
-  getAiringTodaySeries(): Observable<AllSeries>{
-    return this.http.get<AllSeries>(`${this.apiUrl}tv/airing_today?api_key=${this.key}`)
+  getAiringTodaySeries(): Observable<Serie[]>{
+    return this.http.get<AllSeries>(`${this.apiUrl}tv/airing_today?api_key=${this.key}`).pipe(
+      map((allSeries: AllSeries) => allSeries.results)
+    )
   }
 
-  getAiringNowSeries(): Observable<AllSeries>{
-    return this.http.get<AllSeries>(`${this.apiUrl}tv/on_the_air?api_key=${this.key}`)
+  getAiringNowSeries(): Observable<Serie[]>{
+    return this.http.get<AllSeries>(`${this.apiUrl}tv/on_the_air?api_key=${this.key}`).pipe(
+      map((allSeries: AllSeries) => allSeries.results)
+    )
   }
 }

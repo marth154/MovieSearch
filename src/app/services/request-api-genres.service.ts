@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+import { Genre } from './../model/series.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -13,10 +15,14 @@ export class RequestApiGenresService {
   constructor(private http: HttpClient) { }
 
   findAllGenresMovie(): Observable<AllGenres> {
-    return this.http.get<AllGenres>(`${this.apiUrl}genre/movie/list?api_key=${this.key}&language=fr-FR`)
+    return this.http.get<AllGenres>(`${this.apiUrl}genre/movie/list?api_key=${this.key}&language=fr-FR`).pipe(
+      map((allGenres: AllGenres) => allGenres.genres)
+    )
   }
 
   findAllGenresSeries(): Observable<AllGenres> {
-    return this.http.get<AllGenres>(`${this.apiUrl}genre/tv/list?api_key=${this.key}&language=fr-FR`)
+    return this.http.get<AllGenres>(`${this.apiUrl}genre/tv/list?api_key=${this.key}&language=fr-FR`).pipe(
+      map((allGenres: AllGenres) => allGenres.genres)
+    )
   }
 }
