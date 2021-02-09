@@ -7,7 +7,6 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./people-by-id.component.scss']
 })
 export class PeopleByIdComponent implements OnInit {
-
   @Input() people:People;
 
   constructor() { }
