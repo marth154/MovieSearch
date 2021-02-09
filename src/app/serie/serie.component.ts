@@ -1,8 +1,9 @@
 import { RequestApiSerieService } from './../services/request-api-serie.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { Genre, Serie } from '../model/series.model';
+import { Serie } from '../model/series.model';
 import { RequestApiGenresService } from '../services/request-api-genres.service';
 import { OpenCloseTransition } from '../transitions/open-close';
+import { Genre } from '../model/genres.model';
 
 @Component({
   selector: 'app-serie',
@@ -20,7 +21,7 @@ export class SerieComponent implements OnInit {
   constructor(private requestApiGenresService: RequestApiGenresService, private requestApiSerieService: RequestApiSerieService) { }
 
   ngOnInit(): void {
-    this.requestApiGenresService.findAllGenresSeries().subscribe((genresSerie: Genre[]) => this.genresSerie = genresSerie);
+    this.requestApiGenresService.findAllGenresSeries().subscribe(x => this.genresSerie = x.genres);
   }
 
   toggle() {

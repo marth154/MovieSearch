@@ -17,7 +17,7 @@ export class MovieByIdComponent implements OnInit {
   constructor(private requestApiGenresService: RequestApiGenresService) { }
 
   ngOnInit(): void {
-    this.requestApiGenresService.findAllGenresMovie().subscribe((genresMovie: Genre[]) => this.genresMovie = genresMovie);
+    this.requestApiGenresService.findAllGenresMovie().subscribe(x => this.genresMovie = x.genres);
   }
 
 }
