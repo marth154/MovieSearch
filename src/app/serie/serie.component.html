@@ -9,15 +9,16 @@
         alt="poster-not-available"></ng-template>
     <h3 (click)="openModalInformation(serie.id)" class="white bold" onclick="disableScroll()">{{ serie.name }} ></h3>
     <ul class="genre-list">
-        <li class="regular" *ngFor="let i of serie.genre_ids">{{ genresSerie | mapGenre: i }},&nbsp;</li>
+        <li class="regular" *ngFor="let genre of serie.genre_ids; let index = index">{{ genresSerie | mapGenre: genre }}<span 
+            *ngIf="index !== serie.genre_ids.length-1">,&nbsp;</span></li>
     </ul>
 </div>
 
-<div id="myModal" class="modal">
+<div class="modal" [@openClose]="isOpen" *ngIf="serieById && isOpen">
 
     <div class="modal-content">
       <span (click)="closeModalInformation()" class="close" onclick="enableScroll()">&times;</span>
-      <app-serie-by-id class="card-template" *ngIf="serieById" [serie]="serieById"></app-serie-by-id>
+      <app-serie-by-id class="card-template" [serie]="serieById"></app-serie-by-id>
     </div>
 
 </div>

@@ -7,19 +7,19 @@
     [alt]="movie.poster_path">
     <ng-template #imgNotAvailable><img src="http://www.movienewz.com/img/films/poster-holder.jpg" 
         alt="poster-not-available"></ng-template>
-    <h3 (click)="openModalInformation(movie.id)" class="white bold" onclick="disableScroll()">{{ movie.title }} ></h3>
+    <h3 (click)="openModalInformation(movie.id)" class="white bold">
+      {{ movie.title }} ></h3>
     <ul class="genre-list">
-        <li class="regular" *ngFor="let i of movie.genre_ids">{{ genresMovie | mapGenre: i }},&nbsp;</li>
+        <li class="regular" *ngFor="let genre of movie.genre_ids; let index = index">{{ genresMovie | mapGenre: genre }}<span
+            *ngIf="index !== movie.genre_ids.length-1">,&nbsp;</span></li>
     </ul>
 </div>
 
-<div id="myModal" class="modal">
-
+<div class="modal" [@openClose]="isOpen" *ngIf="movieById && isOpen">
     <div class="modal-content">
-      <span (click)="closeModalInformation()" class="close" onclick="enableScroll()">&times;</span>
-      <app-movie-by-id class="card-template" *ngIf="movieById" [movie]="movieById"></app-movie-by-id>
+        <span (click)="closeModalInformation()" class="close">&times;</span>
+        <app-movie-by-id class="card-template" [movie]="movieById"></app-movie-by-id>
     </div>
-
 </div>
 
 

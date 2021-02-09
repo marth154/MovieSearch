@@ -73,7 +73,11 @@
     <div class="card-top">
         <div>
             <h3 class="bold">{{ serie.name }}</h3>
-            <ul class="genre-list"><li class="regular" *ngFor="let genre of serie.genres">{{ genre.name }},&nbsp;</li></ul>
+            <ul class="genre-list">
+              <li class="regular" *ngFor="let genre of serie.genres; let index = index">
+                {{ genre.name }}<span *ngIf="index !== serie.genres.length-1">,&nbsp;</span>
+              </li>
+            </ul>
             <div class="card-note" [innerHtml]="serie.vote_average | note:10"></div>
         </div>
     </div>
