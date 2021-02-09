@@ -1,12 +1,13 @@
-import { AllGenres } from './../model/genres.model';
+import { Genre } from './../model/series.model';
 import { Pipe, PipeTransform } from '@angular/core';
+
 
 @Pipe({
   name: 'mapGenre'
 })
 export class MapGenrePipe implements PipeTransform {
 
-  transform(genresMovie, id:number): string {
+  transform(genresMovie: Genre[], id:number): string {
     return genresMovie[genresMovie.findIndex(genreMovie => genreMovie.id === id)].name
   }
 
