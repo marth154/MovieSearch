@@ -8,28 +8,25 @@ import { Genre } from '../model/genres.model';
 @Component({
   selector: 'app-serie',
   templateUrl: './serie.component.html',
-  styleUrls: ['./serie.component.scss'],
   animations: [OpenCloseTransition]
 })
 export class SerieComponent implements OnInit {
 
-  @Input() series: object;
+  @Input() series: Serie[];
 
   serieById: Serie;
   genresSerie: Genre[];
   isOpen = false;
 
-  pegi18: string = "../../assets/PEGI_18.svg.png";
-
-  toggle() {
-    this.isOpen = !this.isOpen
-    document.body.style.overflowY = this.isOpen ? 'hidden' : 'initial';
-  }
-
   constructor(private requestApiGenresService: RequestApiGenresService, private requestApiSerieService: RequestApiSerieService) { }
 
   ngOnInit(): void {
     this.requestApiGenresService.findAllGenresSeries().subscribe(x => this.genresSerie = x.genres);
+  }
+
+  toggle() {
+    this.isOpen = !this.isOpen
+    document.body.style.overflowY = this.isOpen ? 'hidden' : 'initial';
   }
 
   openModalInformation(id:number) {

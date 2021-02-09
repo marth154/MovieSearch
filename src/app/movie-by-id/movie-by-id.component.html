@@ -1,46 +1,3 @@
-<!-- <p>{{ movie.title }}</p>
-
-<img *ngIf="movie.poster_path" 
-    src="https://image.tmdb.org/t/p/w440_and_h660_face{{movie.poster_path}}" 
-    [alt]="movie.poster_path">
-
-<p>Budget: {{ movie.budget | currency:"EU" }}</p>
-
-<div>
-    <img *ngIf="movie.adult" alt="adult" src="../../assets/PEGI_18.svg.png" style="width:50px;"/>
-</div>
-
-
-<p>{{ movie.overview }}</p>
-
-
-<p>{{ movie.vote_average }}</p>
-
-<img src="../../assets/star.png" *ngFor="let count of average; let last = last;"
-[class.star-average-five]="count >= 1"
-[class.star-average-four]="count < 1 && count >= 0.8"
-[class.star-average-tree]="count < 0.8 && count >= 0.6"
-[class.star-average-two]="count < 0.6 && count >= 0.4"
-[class.star-average-one]="count < 0.4 && count >= 0.2">
-
-
-<ul *ngFor="let company of movie.production_companies">
-    <li>
-    {{ company.name }} in {{ company.origin_country }}
-    <img src="https://image.tmdb.org/t/p/w440_and_h660_face{{company.logo_path}}" />
-    </li>
-</ul>
-
-<ul *ngFor="let country of movie.production_countries">
-    <li>
-    {{ country.name }}
-    </li>
-</ul>
-
-<p>Sortie le {{ movie.release_date | date: 'dd/MM/yyyy' }}</p>
-
-<p>Durée {{ movie.runtime | heure }}</p> -->
-
 <div class="card-information">
     <div class="card-top">
         <div>
@@ -50,7 +7,7 @@
                   {{ genre.name }}<span *ngIf="index !== movie.genres.length-1">,&nbsp;</span>
                 </li>
             </ul>
-            <div class="card-note" [innerHtml]="movie.vote_average | note:10"></div>
+            <div *ngIf="movie.vote_average" class="card-note" [innerHtml]="movie.vote_average | note:10"></div>
         </div>
         <p class="regular adult-content" *ngIf="movie.adult">🛑 Ce film n'est pas destiné à un jeune public</p>
     </div>
