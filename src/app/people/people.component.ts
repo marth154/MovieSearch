@@ -6,24 +6,22 @@ import { OpenCloseTransition } from '../transitions/open-close';
 @Component({
   selector: 'app-people',
   templateUrl: './people.component.html',
-  styleUrls: ['./people.component.scss'],
   animations: [OpenCloseTransition]
 })
 export class PeopleComponent implements OnInit {
-
-  @Input() peoples: object;
+  @Input() peoples: People[];
 
   peopleById: People;
   isOpen = false;
 
-  toggle() {
-    this.isOpen = !this.isOpen
-    document.body.style.overflowY = this.isOpen ? 'hidden' : 'initial';
-  }
-
   constructor(private requestApiPeopleService: RequestApiPeopleService) { }
 
   ngOnInit(): void {
+  }
+
+  toggle() {
+    this.isOpen = !this.isOpen
+    document.body.style.overflowY = this.isOpen ? 'hidden' : 'initial';
   }
 
   openModalInformation(id:number) {

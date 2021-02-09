@@ -13,8 +13,8 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 })
 export class AppComponent {
   title = 'MovieSearch';
+  searching = 'movie';
   searchInput: string;
-  searching: string = 'movie';
   activeSearch: string;
 
   movies: Movie[];
@@ -31,6 +31,8 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.getPopularMovies();
+    this.requestApiSerieService.getPopularSeries().subscribe((series: Serie[]) => this.series = series);
+    this.requestApiPeopleService.getPopularPeople().subscribe((peoples: People[]) => this.peoples = peoples);
   }
 
   searchResult() {

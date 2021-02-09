@@ -1,6 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 
-export const OpenCloseTransition =[
+export const OpenCloseTransition = [
     trigger('openClose', [
       transition(':enter', [
         style({transform: 'scale3d(.3, .3, .3)'}),
