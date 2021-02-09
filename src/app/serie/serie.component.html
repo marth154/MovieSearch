@@ -13,11 +13,11 @@
     </ul>
 </div>
 
-<div id="myModal" class="modal">
+<div id="myModal" class="modal" *ngIf="serieById && isOpen">
 
     <div class="modal-content">
       <span (click)="closeModalInformation()" class="close" onclick="enableScroll()">&times;</span>
-      <app-serie-by-id class="card-template" *ngIf="serieById" [serie]="serieById"></app-serie-by-id>
+      <app-serie-by-id class="card-template" [serie]="serieById"></app-serie-by-id>
     </div>
 
 </div>

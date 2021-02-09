@@ -7,17 +7,17 @@
     [alt]="people.profile_path">
     <ng-template #imgNotAvailable><img src="https://www.vachamber.com/wp-content/uploads/2018/01/Image-Unavailable.jpg" 
         alt="poster-not-available"></ng-template>
-    <h3 (click)="openModalInformation(people.id)" class="white bold" onclick="disableScroll()">{{ people.name }} ></h3>
+    <h3 (click)="openModalInformation(people.id)" class="white bold">{{ people.name }} ></h3>
     <ul class="genre-list">
         <li class="regular" *ngFor="let i of people.genre_ids">{{ i | mapGenre: i }},&nbsp;</li>
     </ul>
 </div>
 
-<div id="myModal" class="modal">
+<div id="myModal" class="modal" *ngIf="peopleById && isOpen">
 
     <div class="modal-content">
-      <span (click)="closeModalInformation()" class="close" onclick="enableScroll()">&times;</span>
-      <app-people-by-id class="card-template" *ngIf="peopleById" [people]="peopleById"></app-people-by-id>
+      <span (click)="closeModalInformation()" class="close">&times;</span>
+      <app-people-by-id class="card-template" [people]="peopleById"></app-people-by-id>
     </div>
 
 </div>

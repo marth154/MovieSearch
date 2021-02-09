@@ -15,8 +15,18 @@ export class SerieComponent implements OnInit {
 
   serieById: Serie;
   genresSerie: Genre[];
+  isOpen = false;
 
   pegi18: string = "../../assets/PEGI_18.svg.png";
+
+  toggle() {
+    this.isOpen = !this.isOpen
+    if (this.isOpen) {
+      document.body.style.overflowY = 'hidden';
+    } else {
+      document.body.style.overflowY = 'initial';
+    }
+  }
 
   constructor(private requestApiGenresService: RequestApiGenresService, private requestApiSerieService: RequestApiSerieService) { }
 
@@ -26,15 +36,11 @@ export class SerieComponent implements OnInit {
 
   openModalInformation(id:number) {
     this.requestApiSerieService.findSerieById(id).subscribe(serie => {this.serieById = serie;});
-    let modal = document.getElementById("myModal");
-    modal.style.display = "flex";
-    document.body.style.overflowY = "hidden"
+    this.toggle();
   }
   
   closeModalInformation() {
-    let modal = document.getElementById("myModal");
-    modal.style.display = "none";
-    document.body.style.overflowY = "initial"
+    this.toggle();
   }
 
 }

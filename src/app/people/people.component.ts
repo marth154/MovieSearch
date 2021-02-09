@@ -12,7 +12,17 @@ export class PeopleComponent implements OnInit {
   @Input() peoples: object;
 
   peopleById: People;
-  
+  isOpen = false;
+
+  toggle() {
+    this.isOpen = !this.isOpen
+    if (this.isOpen) {
+      document.body.style.overflowY = 'hidden';
+    } else {
+      document.body.style.overflowY = 'initial';
+    }
+  }
+
   constructor(private requestApiPeopleService: RequestApiPeopleService) { }
 
   ngOnInit(): void {
@@ -24,15 +34,11 @@ export class PeopleComponent implements OnInit {
 
   openModalInformation(id:number) {
     this.requestApiPeopleService.findPeopleById(id).subscribe(people => {this.peopleById = people;});
-    let modal = document.getElementById("myModal");
-    modal.style.display = "flex";
-    document.body.style.overflowY = "hidden"
+    this.toggle()
   }
   
   closeModalInformation() {
-    let modal = document.getElementById("myModal");
-    modal.style.display = "none";
-    document.body.style.overflowY = "initial"
+    this.toggle()
   }
 
 }

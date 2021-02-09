@@ -4,6 +4,7 @@ import { Movie } from '../model/movie.model';
 import { RequestApiMoviesService } from './../services/request-api-movies.service';
 
 import { Component, Input, OnInit } from '@angular/core';
+import { log } from 'console';
 
 @Component({
   selector: 'app-movie',
@@ -18,6 +19,16 @@ export class MovieComponent implements OnInit {
 
   movieById: Movie;
   genresMovie: Genre[];
+  isOpen = false;
+
+  toggle() {
+    this.isOpen = !this.isOpen
+    if (this.isOpen) {
+      document.body.style.overflowY = 'hidden';
+    } else {
+      document.body.style.overflowY = 'initial';
+    }
+  }
 
   constructor(private requestApiMoviesService: RequestApiMoviesService, private requestApiGenresService: RequestApiGenresService ) { }
 
@@ -25,17 +36,13 @@ export class MovieComponent implements OnInit {
     this.requestApiGenresService.findAllGenresMovie().subscribe(genresMovie => {this.genresMovie = genresMovie.genres;});
   }
 
-  openModalInformation(id:number) {
+  openModalInformation(id: number) {
     this.requestApiMoviesService.findMoviesById(id).subscribe(movie => {this.movieById = movie;});
-    let modal = document.getElementById("myModal");
-    modal.style.display = "flex";
-    document.body.style.overflowY = "hidden"
+    this.toggle()
   }
   
   closeModalInformation() {
-    let modal = document.getElementById("myModal");
-    modal.style.display = "none";
-    document.body.style.overflowY = "initial"
+    this.toggle()
   }
 
 }
