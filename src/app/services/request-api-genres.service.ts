@@ -18,6 +18,6 @@ export class RequestApiGenresService {
   }
 
   findAllGenresSeries(): Observable<AllGenres> {
-    return this.http.get<AllGenres>(`${this.apiUrl}genre/tv/list?api_key=${this.key}&language=fr-FR`)
+    return this.http.get<AllGenres>(`https://api.themoviedb.org/3/genre/tv/list?api_key=89481d4469f0f699ac04327380e53f95`)
   }
 }

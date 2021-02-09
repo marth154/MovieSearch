@@ -8,6 +8,7 @@ import { Genre } from '../model/genres.model';
 @Component({
   selector: 'app-serie',
   templateUrl: './serie.component.html',
+  styleUrls: ['./serie.component.scss'],
   animations: [OpenCloseTransition]
 })
 export class SerieComponent implements OnInit {
@@ -38,4 +39,7 @@ export class SerieComponent implements OnInit {
     this.toggle();
   }
 
+  searchByGenre(id: number) {
+    this.requestApiSerieService.findSerieByGenre(id).subscribe(x => this.series = x.results)
+  }
 }

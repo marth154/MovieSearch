@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
+  styleUrls: ['./movie.component.scss'],
   animations: [OpenCloseTransition]
 })
 export class MovieComponent implements OnInit {
@@ -35,5 +36,9 @@ export class MovieComponent implements OnInit {
   
   closeModalInformation() {
     this.toggle()
+  }
+
+  searchByGenre(id: number) {
+    this.requestApiMoviesService.findMovieByGenre(id).subscribe(x => this.movies = x.results)
   }
 }

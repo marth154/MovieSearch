@@ -1,3 +1,4 @@
+import { AllSeries } from './../model/series.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -22,6 +23,10 @@ export class RequestApiSerieService {
 
   findSerieById(id: number): Observable<Serie> {
     return this.http.get<Serie>(`${this.apiUrl}tv/${id}?api_key=${this.key}`) 
+  }
+
+  findSerieByGenre(id: number): Observable<AllSeries> {
+    return this.http.get<AllSeries>(`${this.apiUrl}discover/tv?api_key=${this.key}&with_genres=${id}`)
   }
 
   getPopularSeries(): Observable<Serie[]>{

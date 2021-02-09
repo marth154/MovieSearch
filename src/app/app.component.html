@@ -67,6 +67,7 @@
 
     <div class="right-section">
         <h2 class="white regular">Recherchez films, séries et acteurs !</h2>
+        
         <app-movie class="posters-section" *ngIf="searching == 'movie'" [movies]="movies"></app-movie>
         <app-serie class="posters-section" *ngIf="searching == 'tv'" [series]="series"></app-serie>
         <app-people class="posters-section" *ngIf="searching == 'person'" [peoples]="peoples"></app-people>

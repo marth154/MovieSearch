@@ -24,6 +24,10 @@ export class RequestApiMoviesService {
     return this.http.get<Movie>(`${this.apiUrl}movie/${id}?api_key=${this.key}`) 
   }
 
+  findMovieByGenre(id: number): Observable<AllMovies> {
+    return this.http.get<AllMovies>(`${this.apiUrl}discover/movie?api_key=${this.key}&with_genres=${id}`)
+  }
+
   getPopularMovies(): Observable<Movie[]> {
     return this.http.get<AllMovies>(`${this.apiUrl}movie/popular?api_key=${this.key}`).pipe(
       map((allMovies: AllMovies) => allMovies.results)
