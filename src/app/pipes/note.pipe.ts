@@ -10,16 +10,11 @@ export class NotePipe implements PipeTransform {
   transform(note: number, maxNote: number): any {
 
     let starsNoteHtml: string = '';
-    let starsMissingHtml: string = '';
 
-    for (let star = 0; star < Math.round(note); star++) {
-      starsNoteHtml += `<i class="fas fa-star"></i>`;
+    for (let index = 0; index < maxNote; index++) {
+      starsNoteHtml += index < Math.round(note) ? `<i class="fas fa-star"></i>` : `<i class="far fa-star"></i>`;
     }
 
-    for (let star = 0; star < maxNote - Math.round(note); star++) {
-      starsMissingHtml += `<i class="far fa-star"></i>`;
-    }
-
-    return this.sanitizer.sanitize(SecurityContext.HTML, this.sanitizer.bypassSecurityTrustHtml(`${starsNoteHtml}${starsMissingHtml}`));
+    return this.sanitizer.sanitize(SecurityContext.HTML, this.sanitizer.bypassSecurityTrustHtml(starsNoteHtml));
   }
 }
