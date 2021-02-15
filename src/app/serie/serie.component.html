@@ -13,7 +13,7 @@
     [alt]="serie.poster_path">
     <ng-template #imgNotAvailable><img src="http://www.movienewz.com/img/films/poster-holder.jpg" 
         alt="poster-not-available"></ng-template>
-    <h3 (click)="openModalInformation(serie.id)" class="white bold" onclick="disableScroll()">{{ serie.name }} ></h3>
+    <h3 (click)="openModalInformation(serie.id)" class="white bold">{{ serie.name }} ></h3>
     <ul class="genre-list">
         <li class="regular" *ngFor="let genre of serie.genre_ids; let index = index">{{ genresSerie | mapGenre: genre }}<span 
             *ngIf="index !== serie.genre_ids.length-1">,&nbsp;</span></li>
@@ -23,7 +23,7 @@
 <div class="modal" [@openClose]="isOpen" *ngIf="serieById && isOpen">
 
     <div class="modal-content">
-      <span (click)="closeModalInformation()" class="close" onclick="enableScroll()">&times;</span>
+      <span (click)="closeModalInformation()" class="close">&times;</span>
       <app-serie-by-id class="card-template" [serie]="serieById"></app-serie-by-id>
     </div>
 
