@@ -17,6 +17,7 @@ import { MapGenrePipe } from './pipes/map-genre.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { AffichageRechercheComponent } from './affichage-recherche/affichage-recherche.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AffichageRechercheComponent } from './affichage-recherche/affichage-rec
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AffichageRechercheComponent]

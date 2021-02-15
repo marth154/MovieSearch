@@ -1,1 +1,30 @@
 <p>sign-in works!</p>
+
+<form [formGroup]="registerForm">
+  <div class="form-group">
+    <label for="first_name">Prénom:</label>
+    <input type="text" class="form-control" formControlName="first_name">
+    <div class="alert alert-danger" *ngIf="first_name.touched && first_name.errors?.required">Le prénom est requis</div>
+
+    <label for="last_name">Nom:</label>
+    <input type="text" class="form-control" formControlName="last_name">
+    <div class="alert alert-danger" *ngIf="last_name.touched && last_name.errors?.required">Le nom est requis</div>
+
+    <label for="phone">Téléphone:</label>
+    <input type="text" class="form-control" formControlName="phone">
+    <div class="alert alert-danger" *ngIf="phone.touched && phone.errors?.required">Le téléphone est requis</div>
+    <div class="alert alert-danger" *ngIf="phone.touched && phone.errors?.isANumber">Le numéro de téléphone doit être un nombre</div>
+    <div class="alert alert-danger" *ngIf="phone.touched && phone.errors?.cannotContainSpaces">Le numéro de téléphone ne doit pas contenir d'espace</div>
+    <div class="alert alert-danger" *ngIf="phone.touched && phone.errors?.startWithNumberZero">Le numéro de téléphone doit commencer par '0'</div>
+    <div class="alert alert-danger" *ngIf="phone.touched && phone.errors?.minlength || phone.errors?.maxlength">Le
+      numéro de téléphone doit contenir 10 caractères</div>
+
+    <label for="email">Email:</label>
+    <input type="text" class="form-control" formControlName="email">
+    <div class="alert alert-danger" *ngIf="email.touched && email.errors?.required">Le mail est requis</div>
+    <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email || email.errors?.pattern">Le mail doit être valide</div>
+
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <pre><code>{{ registerForm.value | json }}</code></pre>
+</form>
