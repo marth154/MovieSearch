@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { MovieComponent } from './movie/movie.component';
 import { PeopleComponent } from './people/people.component';
 import { SerieComponent } from './serie/serie.component';
@@ -17,6 +17,7 @@ import { MapGenrePipe } from './pipes/map-genre.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { AffichageRechercheComponent } from './affichage-recherche/affichage-recherche.component';
+import { CommentaireComponent } from './commentaire/commentaire.component';
 
 @NgModule({
   declarations: [
@@ -32,13 +33,15 @@ import { AffichageRechercheComponent } from './affichage-recherche/affichage-rec
     MapGenrePipe,
     SignInComponent,
     AffichageRechercheComponent,
+    CommentaireComponent,
   ],
   imports: [
     FormsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AffichageRechercheComponent]
