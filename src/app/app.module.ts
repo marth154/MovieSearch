@@ -15,6 +15,8 @@ import { SerieByIdComponent } from './serie-by-id/serie-by-id.component';
 import { PeopleByIdComponent } from './people-by-id/people-by-id.component';
 import { MapGenrePipe } from './pipes/map-genre.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { AffichageRechercheComponent } from './affichage-recherche/affichage-recherche.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SerieByIdComponent,
     PeopleByIdComponent,
     MapGenrePipe,
+    SignInComponent,
+    AffichageRechercheComponent,
   ],
   imports: [
     FormsModule,
@@ -37,6 +41,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AffichageRechercheComponent]
 })
 export class AppModule { }

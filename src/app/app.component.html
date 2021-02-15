@@ -15,6 +15,9 @@
                     <option value="person">Personne</option>
                 </select>
             </div>
+            <div class="total-center">
+                <a routerLink="sign-in" class="white regular">Sign In</a>
+            </div>
         </div>
     </nav>
 </header>
@@ -72,5 +75,4 @@
         <app-serie class="posters-section" *ngIf="searching == 'tv'" [series]="series"></app-serie>
         <app-people class="posters-section" *ngIf="searching == 'person'" [peoples]="peoples"></app-people>
     </div>
-
 </section>
