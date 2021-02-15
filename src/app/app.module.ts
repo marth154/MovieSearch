@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,8 +14,9 @@ import { SerieByIdComponent } from './serie-by-id/serie-by-id.component';
 import { PeopleByIdComponent } from './people-by-id/people-by-id.component';
 import { MapGenrePipe } from './pipes/map-genre.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormulaireComponent } from './formulaire/formulaire.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { AffichageRechercheComponent } from './affichage-recherche/affichage-recherche.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     SerieByIdComponent,
     PeopleByIdComponent,
     MapGenrePipe,
-    FormulaireComponent,
+    SignInComponent,
+    AffichageRechercheComponent,
+
   ],
   imports: [
     FormsModule,
@@ -41,6 +43,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AffichageRechercheComponent]
 })
 export class AppModule { }

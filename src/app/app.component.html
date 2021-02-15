@@ -7,13 +7,16 @@
             <div class="vertical-center">
                 <i class="fas fa-search" (click)="searchResult()"></i>
                 <input id="search-input" class="navbar-search regular white" placeholder="Rechercher un(e) série/film/personne" [(ngModel)]="searchInput" type="text" 
-                (keyup.enter)="searchResult()"
+                (keyup)="searchResult()"
                 />
                 <select class="search-option" name="searching" id="searching" required [(ngModel)]="searching">
                     <option value="movie">Film</option>
                     <option value="tv">Série</option>
                     <option value="person">Personne</option>
                 </select>
+            </div>
+            <div class="total-center">
+                <a routerLink="sign-in" class="white regular">Sign In</a>
             </div>
         </div>
     </nav>
@@ -72,5 +75,4 @@
         <app-serie class="posters-section" *ngIf="searching == 'tv'" [series]="series"></app-serie>
         <app-people class="posters-section" *ngIf="searching == 'person'" [peoples]="peoples"></app-people>
     </div>
-
 </section>

@@ -1,6 +1,6 @@
 
-    <ul *ngFor="let item of genresMovie" id="menuItem">
-        <li class="left-section-btn" id="items" (click)="searchByGenre(item.id)">
+    <ul id="menuItem">
+        <li class="left-section-btn" id="items" *ngFor="let item of genresMovie" (click)="searchByGenre(item.id)">
             <h3 class="regular">{{ item.name }}</h3>
         </li>
     </ul>
@@ -28,6 +28,6 @@
             </div>
         </div>
         
-    <div *ngIf="!movies.length;">
-        <p>No movie</p>
+    <div *ngIf="movies && !movies.length">
+        <h1 class="white regular">No movies found</h1>
     </div>

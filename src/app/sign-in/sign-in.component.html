@@ -1,0 +1,21 @@
+<div class="containt">
+    <form [formGroup]="Signin" >
+        <div class="group-input">
+            <legend>Inscription</legend>
+            <input type="text" class="form-control" placeholder="FirstName" formControlName="firstname">
+            <input type="text" class="form-control" placeholder="LastName" formControlName="lastname">
+            <select class="browser-default custom-select">
+                <option value="Boy" selected>Boy</option>
+                <option value="Girl">Girl</option>
+                <option value="Other">Other</option>
+            </select>
+            <input type="text" class="form-control" placeholder="Phone Number" formControlName="phonenumber">
+            <input type="text" class="form-control" placeholder="Date of birth" formControlName="birthdate">
+            <input type="email" class="form-control" placeholder="Enter email" formControlName="email">
+            <input type="password" class="form-control" placeholder="Password" formControlName="password">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <!-- <pre><code>{{ Signin.value | json }}</code></pre> -->
+        </div>
+    </form>
+</div>
+  
