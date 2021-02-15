@@ -1,29 +1,33 @@
+
     <ul id="menuItem">
         <li class="left-section-btn" id="items" *ngFor="let item of genresMovie" (click)="searchByGenre(item.id)">
             <h3 class="regular">{{ item.name }}</h3>
         </li>
     </ul>
-
-    <div class="poster" *ngFor="let movie of movies">
-        <div class="vote" *ngIf="movie.vote_average">
-            <p class="regular">{{ movie.vote_average }}</p>
-        </div>   
-        <img *ngIf="movie.poster_path; else imgNotAvailable" 
-        src="https://image.tmdb.org/t/p/w440_and_h660_face{{movie.poster_path}}" 
-        [alt]="movie.poster_path">
-        <ng-template #imgNotAvailable><img src="http://www.movienewz.com/img/films/poster-holder.jpg" 
-            alt="poster-not-available"></ng-template>
-        <h3 (click)="openModalInformation(movie.id)" class="white bold">
-        {{ movie.title }} ></h3>
-        <ul class="genre-list">
-            <li class="regular" *ngFor="let genre of movie.genre_ids; let index = index">{{ genresMovie | mapGenre: genre }}<span
-                *ngIf="index !== movie.genre_ids.length-1">,&nbsp;</span></li>
-        </ul>
-    </div>
-
-    <div class="modal" [@openClose]="isOpen" *ngIf="movieById && isOpen">
-        <div class="modal-content">
-            <span (click)="closeModalInformation()" class="close">&times;</span>
-            <app-movie-by-id class="card-template" [movie]="movieById"></app-movie-by-id>
+        <div class="poster" *ngFor="let movie of movies">
+            <div class="vote" *ngIf="movie.vote_average">
+                <p class="regular">{{ movie.vote_average }}</p>
+            </div>   
+            <img *ngIf="movie.poster_path; else imgNotAvailable" 
+            src="https://image.tmdb.org/t/p/w440_and_h660_face{{movie.poster_path}}" 
+            [alt]="movie.poster_path">
+            <ng-template #imgNotAvailable><img src="http://www.movienewz.com/img/films/poster-holder.jpg" 
+                alt="poster-not-available"></ng-template>
+            <h3 (click)="openModalInformation(movie.id)" class="white bold">
+            {{ movie.title }} ></h3>
+            <ul class="genre-list">
+                <li class="regular" *ngFor="let genre of movie.genre_ids; let index = index">{{ genresMovie | mapGenre: genre }}<span
+                    *ngIf="index !== movie.genre_ids.length-1">,&nbsp;</span></li>
+            </ul>
         </div>
+
+        <div class="modal" [@openClose]="isOpen" *ngIf="movieById && isOpen">
+            <div class="modal-content">
+                <span (click)="closeModalInformation()" class="close">&times;</span>
+                <app-movie-by-id class="card-template" [movie]="movieById"></app-movie-by-id>
+            </div>
+        </div>
+        
+    <div *ngIf="!movies.length;">
+        <p>No movie</p>
     </div>
