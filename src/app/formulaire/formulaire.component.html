@@ -1,0 +1,32 @@
+<form [formGroup]="Signin">
+  <div class="form-group">
+    <label for="FirstName">FirstName</label>
+    <input type="text" class="form-control" placeholder="Enter FirstName" formControlName="firstname">
+  </div>
+  <div class="form-group">
+    <label for="LastName">LastName</label>
+    <input type="text" class="form-control" placeholder="Enter LastName" formControlName="lastname">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" placeholder="Enter email" formControlName="email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" placeholder="Password" formControlName="password">
+  </div>
+  <fieldset>
+    <legend>Adresse</legend>
+    <div class="form-group" formGroupName="adresse">
+      <div class="form-group">
+        <label for="Rue">Rue</label>
+        <input type="text" class="form-control" placeholder="Rue" formControlName="rue">
+      </div>
+      <div class="form-group">
+        <label for="postalCode">Code Postale</label>
+        <input type="text" class="form-control" placeholder="Code Postale" formControlName="codePostale">
+      </div>
+    </div>
+  </fieldset>
+</form>

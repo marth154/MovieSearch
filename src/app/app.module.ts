@@ -15,6 +15,8 @@ import { SerieByIdComponent } from './serie-by-id/serie-by-id.component';
 import { PeopleByIdComponent } from './people-by-id/people-by-id.component';
 import { MapGenrePipe } from './pipes/map-genre.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormulaireComponent } from './formulaire/formulaire.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,13 +30,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SerieByIdComponent,
     PeopleByIdComponent,
     MapGenrePipe,
+    FormulaireComponent,
   ],
   imports: [
     FormsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
