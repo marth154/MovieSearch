@@ -1,3 +1,4 @@
+import { NameValidator } from './../validators/name.validator';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { phoneValidator } from '../validators/phone.validator';
@@ -30,8 +31,8 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
-      first_name: new FormControl('', Validators.required),
-      last_name: new FormControl('', Validators.required),
+      first_name: new FormControl('', [Validators.required, NameValidator.cannotContainNumber]),
+      last_name: new FormControl('', [Validators.required, NameValidator.cannotContainNumber]),
       phone: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), phoneValidator.isANumber, phoneValidator.cannotContainSpaces, phoneValidator.startWithNumberZero]),
       email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
     });
