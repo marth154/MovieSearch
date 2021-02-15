@@ -10,7 +10,8 @@ export interface AllSeries {
   created_by: Createdby[];
   episode_run_time: number[];
   first_air_date: string;
-  genres: Genre[];
+  genre_ids?: number[];
+  genres?: Genre[];
   homepage: string;
   id: number;
   in_production: boolean;
