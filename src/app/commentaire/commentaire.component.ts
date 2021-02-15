@@ -23,6 +23,8 @@ export class CommentaireComponent implements OnInit {
   }
 
   addComment(comment: string) {
-    this.comments.push(new FormControl(comment, [Validators.required]));
+    if(comment.length != 0) {
+      this.comments.push(new FormControl(comment));
+    }
   }
 }

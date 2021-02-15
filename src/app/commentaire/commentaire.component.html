@@ -6,6 +6,7 @@
             placeholder="Ecris ton commentaire"
             autocomplete="off"
             size="100"
+            required
             (keyup.enter)="addComment(commentaire.value); commentaire.value = '';"
             #commentaire
         />
