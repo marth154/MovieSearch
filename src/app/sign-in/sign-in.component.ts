@@ -12,6 +12,10 @@ import { phoneValidator } from '../validators/phone.validator';
 export class SignInComponent implements OnInit {
   registerForm: FormGroup;
 
+  Signin: FormGroup;
+
+  constructor() { }
+
   get first_name() {
     return this.registerForm.get('first_name');
   }
@@ -36,7 +40,6 @@ export class SignInComponent implements OnInit {
     return this.registerForm.get('confirm_password');
   }
 
-  constructor() {}
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
