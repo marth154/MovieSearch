@@ -13,7 +13,7 @@ export class phoneValidator {
   }
 
   static startWithNumberZero(control: AbstractControl): ValidationErrors {
-    return (control.value as string)[0] ? { startWithNumberZero: true } : null;
+    return (control.value as string).substr(0,1) === '0' ? null : { startWithNumberZero: true };
   }
 
 }
