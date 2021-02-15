@@ -1,4 +1,11 @@
-.containt {
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #222B31;
+}
+
+.formulaire {
     text-align: center;
     margin-top: 2rem;
     margin-right: auto;
@@ -10,12 +17,15 @@
     border-radius: 10px;
     font-family: poppins;
 }
+
 .group-input {
     margin: 1rem;
 }
+
 .group-input > legend {
     margin-bottom: 1rem;
 }
+
 .group-input > input, select {
     margin-bottom: 1rem;
 }
