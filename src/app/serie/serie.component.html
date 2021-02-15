@@ -1,5 +1,5 @@
-<ul *ngFor="let item of genresSerie" id="menuItem">
-    <li class="left-section-btn" id="items" (click)="searchByGenre(item.id)">
+<ul id="menuItem">
+    <li class="left-section-btn" id="items" *ngFor="let item of genresSerie" (click)="searchByGenre(item.id)">
         <h3 class="regular">{{ item.name }}</h3>
     </li>
 </ul>
