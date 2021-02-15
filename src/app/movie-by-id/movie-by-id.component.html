@@ -25,11 +25,11 @@
             <div class="card-more-information">
                 <div>
                     <p class="bold">Durée du film</p>
-                    <p class="regular">{{ movie.runtime }} min</p>
+                    <p class="regular">{{ movie.runtime | heure}} min</p>
                 </div>
                 <div>
                     <p class="bold">Date de sortie</p>
-                    <p class="regular">{{ movie.release_date }}</p>
+                    <p class="regular">{{ movie.release_date | date: 'dd/MM/yyyy'}}</p>
                 </div>
                 <div>
                     <p class="bold">Revenus</p>

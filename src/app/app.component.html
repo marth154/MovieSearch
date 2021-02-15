@@ -7,7 +7,7 @@
             <div class="vertical-center">
                 <i class="fas fa-search" (click)="searchResult()"></i>
                 <input id="search-input" class="navbar-search regular white" placeholder="Rechercher un(e) série/film/personne" [(ngModel)]="searchInput" type="text" 
-                (keyup.enter)="searchResult()"
+                (keyup)="searchResult()"
                 />
                 <select class="search-option" name="searching" id="searching" required [(ngModel)]="searching">
                     <option value="movie">Film</option>
