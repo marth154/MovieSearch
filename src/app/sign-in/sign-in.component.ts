@@ -1,3 +1,4 @@
+import { EmailValidators } from './../validators/email.validator';
 import { RequestEmailApiService } from './../services/request-email-api.service';
 import { NameValidator } from './../validators/name.validator';
 import { Component, OnInit } from '@angular/core';
@@ -78,13 +79,12 @@ export class SignInComponent implements OnInit {
       ),
       email: new FormControl(
         '', 
-        {
-          validators: [
+        [
             Validators.required, 
             Validators.email, 
             Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
-          ]
-        }
+        ],
+        EmailValidators.isExist(this.emailApi),
       ),
       password: new FormControl(
         '', 

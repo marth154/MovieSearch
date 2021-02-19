@@ -7,39 +7,17 @@ import { Email } from '../model/email.model';
 
 @Injectable({
     providedIn: 'root'
-  })
-  export class EmailValidators {
-    static emailValidator: AsyncValidatorFn | AsyncValidatorFn[];
-  
-    constructor(private emailApi: RequestEmailApiService) { }
-  
-    /*uniqueEmail(): AsyncValidatorFn {
-      return (control: AbstractControl): Observable<ValidationErrors | null> => {
-        return this.emailApi.findEmail((control.value as string)).pipe(
-          map((email: Email) => {
-            if (email.free === true) {
-              console.log(email.free)
-              return { shouldBeUnique: true }
-            }
-            return null
-          })
+})
+export class EmailValidators {
+
+    static isExist(emailApi: RequestEmailApiService): AsyncValidatorFn {
+      return (control: AbstractControl): Observable<ValidationErrors> => {
+        return emailApi.findEmail(control.value as string).pipe(
+          map((email: Email) => { 
+              return email.smtp_check ? null : { isExist: true };
+            })
         );
       };
-  }
-
-  emailValidator(): AsyncValidatorFn {
-    return (control: AbstractControl): Observable<{ [key: string]: any } | null> => {
-      return this.emailApi.findEmail(control.value as string)
-        .pipe(
-          map(res => {
-            // if username is already taken
-            if (res.free === true) {
-              // return error
-              return { 'userNameExists': true};
-            }
-          })
-        );
-    };
-
-  }*/
+    }
+  
 }

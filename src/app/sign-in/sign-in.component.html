@@ -74,7 +74,8 @@
 
 <div class="alert" *ngIf="email.touched && email.errors?.required">Le mail est requis</div>
 <div class="alert" *ngIf="email.touched && email.errors?.email || email.errors?.pattern">Le mail doit être valide</div>
-<!-- <div class="alert" *ngIf="email.touched && email.errors?.userNameExists">Cette email est déjà enregistré</div> -->
+<div class="alert" *ngIf="email.status === 'PENDING'">Vérification de l'email...</div>
+<div class="alert" *ngIf="email.touched && email.errors?.isExist">Cet email n'existe pas</div>
 
 <div class="alert" *ngIf="password.touched && password.errors?.required">Le mot de passe est requis est requis</div>
 
