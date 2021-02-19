@@ -1,8 +1,11 @@
+import { RequestEmailApiService } from './../services/request-email-api.service';
 import { NameValidator } from './../validators/name.validator';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { passwordValidators } from '../validators/password.validator';
-import { phoneValidator } from '../validators/phone.validator';
+import { PasswordValidator } from '../validators/password.validator';
+import { PhoneValidator } from '../validators/phone.validator';
+import { Subscription } from 'rxjs';
+import { registerLocaleData } from '@angular/common';
 
 @Component({
   selector: 'app-sign-in',
@@ -10,11 +13,7 @@ import { phoneValidator } from '../validators/phone.validator';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent implements OnInit {
-  registerForm: FormGroup;
-
-  Signin: FormGroup;
-
-  constructor() { }
+  registerForm;
 
   get first_name() {
     return this.registerForm.get('first_name');
@@ -39,24 +38,70 @@ export class SignInComponent implements OnInit {
   get confirm_password() {
     return this.registerForm.get('confirm_password');
   }
+  
+  emailSubscription: Subscription;
+
+  constructor(private emailApi: RequestEmailApiService) { }
 
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
-      first_name: new FormControl('', [Validators.required, NameValidator.cannotContainNumber]),
-      last_name: new FormControl('', [Validators.required, NameValidator.cannotContainNumber]),
-      phone: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), phoneValidator.isANumber, phoneValidator.cannotContainSpaces, phoneValidator.startWithNumberZero]),
-      email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
-      password: new FormControl('', Validators.required),
-      confirm_password: new FormControl('', [Validators.required, this.isDifferent]),
+      first_name: new FormControl(
+        '', 
+        [
+          Validators.required, 
+          NameValidator.cannotContainNumber,
+          Validators.pattern('[a-zA-Z]')
+        ]
+      ),
+      last_name: new FormControl(
+        '', 
+        [
+          Validators.required, 
+          NameValidator.cannotContainNumber,
+          Validators.pattern('[a-zA-Z]')
+        ]
+      ),
+      homme: new FormControl(),
+      femme: new FormControl(),
+      autre: new FormControl(),
+      phone: new FormControl(
+        '', 
+        [
+          Validators.required, 
+          Validators.minLength(10),
+          Validators.maxLength(10), 
+          PhoneValidator.isANumber, 
+          PhoneValidator.cannotContainSpaces, 
+          PhoneValidator.startWithNumberZero
+        ]
+      ),
+      email: new FormControl(
+        '', 
+        {
+          validators: [
+            Validators.required, 
+            Validators.email, 
+            Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
+          ]
+        }
+      ),
+      password: new FormControl(
+        '', 
+        Validators.required
+      ),
+      confirm_password: new FormControl(
+        '', 
+        [
+          Validators.required,
+          PasswordValidator('password')
+        ]
+      )
     });
   }
 
-  isDifferent(registerForm: FormGroup) { 
-    const password = registerForm.get('password').value;
-    const confirmPassword = registerForm.get('confirm_password').value;
-
-    return password === confirmPassword ? null : { notSame: true }     
+  show() {
+    console.log(this.registerForm.value)
   }
-  
+
 }

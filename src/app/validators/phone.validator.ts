@@ -1,6 +1,6 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
-export class phoneValidator {
+export class PhoneValidator {
   static cannotContainSpaces(control: AbstractControl): ValidationErrors {
     if ((control.value as string).indexOf(' ') >= 0) {
       return { cannotContainSpaces: true };

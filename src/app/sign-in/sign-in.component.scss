@@ -1,32 +1,91 @@
-html, body {
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #222B31;
-}
-
-.formulaire {
-    text-align: center;
-    margin-top: 2rem;
-    margin-right: auto;
-    margin-left: auto;
+.cardSignIn {
+    margin: 0% auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 50%;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    height: 70%;
     background-color: whitesmoke;
     border-radius: 10px;
-    font-family: poppins;
 }
 
-.group-input {
-    margin: 1rem;
+.input {
+    border: none;
+    background-color: whitesmoke;
+    height: 50px;
+    font-size: large;
+    border-bottom: grey solid 1px;
 }
 
-.group-input > legend {
-    margin-bottom: 1rem;
+.left { 
+    float: left;
+    width: 50%;
+    height: 100%;
+    background-image: url('../../assets/netlfux.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
 }
 
-.group-input > input, select {
-    margin-bottom: 1rem;
+.right { 
+    float: right;
+    width: 50%;
+    margin: 0 0 0 1rem;
 }
 
+.divInput {
+    margin-top: 3%;
+}
+
+.divButton {
+    margin-top: 5%;
+}
+
+.regular {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #f83745;
+    padding-top: 7%;
+    text-align: center;
+}
+
+.btn {
+    color: white;
+    background-color: #f83745;
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    display: block;
+    margin : auto;
+}
+
+hr {
+    width: 3px;
+    height: 100%;
+}
+
+.alert {
+    margin: 0% auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 50px;
+    background-color: rgba(255, 0, 0, 0.37);
+    border-radius: 8px;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+}
+
+.divSexe {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: large;
+    color: grey;
+}

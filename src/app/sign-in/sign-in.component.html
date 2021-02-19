@@ -1,46 +1,83 @@
+<h1 class="regular">Sign-In</h1>
 
-<head>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-
-<form [formGroup]="registerForm">
-  <div class="form-group">
-    <label for="first_name">Prénom:</label>
-    <input type="text" class="form-control" formControlName="first_name">
-    <div class="alert alert-danger" *ngIf="first_name.touched && first_name.errors?.required">Le prénom est requis</div>
-    <div class="alert alert-danger" *ngIf="first_name.touched && first_name.errors?.cannotContainNumber">Le prénom ne doit pas contenir de numéro</div>
-
-    <label for="last_name">Nom:</label>
-    <input type="text" class="form-control" formControlName="last_name">
-    <div class="alert alert-danger" *ngIf="last_name.touched && last_name.errors?.required">Le nom est requis</div>
-    <div class="alert alert-danger" *ngIf="first_name.touched && last_name.errors?.cannotContainNumber">Le nom ne doit pas contenir de numéro</div>
-
-    <label for="phone">Téléphone:</label>
-    <input type="text" class="form-control" formControlName="phone">
-    <div class="alert alert-danger" *ngIf="phone.touched && phone.errors?.required">Le téléphone est requis</div>
-    <div class="alert alert-danger" *ngIf="phone.touched && phone.errors?.isANumber">Le numéro de téléphone doit être un nombre</div>
-    <div class="alert alert-danger" *ngIf="phone.touched && phone.errors?.cannotContainSpaces">Le numéro de téléphone ne doit pas contenir d'espace</div>
-    <div class="alert alert-danger" *ngIf="phone.touched && phone.errors?.startWithNumberZero">Le numéro de téléphone doit commencer par '0'</div>
-    <div class="alert alert-danger" *ngIf="phone.touched && phone.errors?.minlength || phone.errors?.maxlength">Le
-      numéro de téléphone doit contenir 10 caractères</div>
-
-    <label for="email">Email:</label>
-    <input type="text" class="form-control" formControlName="email">
-    <div class="alert alert-danger" *ngIf="email.touched && email.errors?.required">Le mail est requis</div>
-    <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email || email.errors?.pattern">Le mail doit être valide</div>
-
-    <label for="password">Mot de passe:</label>
-    <input type="text" class="form-control" formControlName="password">
-    <div class="alert alert-danger" *ngIf="password.touched && password.errors?.required">Le mot de passe est requis est requis</div>
-
-    <label for="confirm_password">Confirmer le mot de passe:</label>
-    <input type="text" class="form-control" formControlName="confirm_password">
-    <div class="alert alert-danger" *ngIf="confirm_password.touched && confirm_password.errors?.required">La confirmation du mot
-      de passe est requis</div>
-    <div class="alert alert-danger" *ngIf="isDifferent">Les
-      mots de passe ne sont pas les mêmes</div>
-
+<div class="cardSignIn">
+  <div class="left">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-  <pre><code>{{ registerForm.value | json }}</code></pre>
-</form>
+
+  <hr>
+
+  <div class="right">
+    <form [formGroup]="registerForm" >
+      <div class="form-group formulaire">
+        <div class="divInput">
+          <input type="text" class="input" formControlName="first_name" placeholder="Prénom">
+        </div>
+        
+        <div class="divInput">
+          <input type="text" class="input" formControlName="last_name" placeholder="Nom">
+        </div>
+
+        <div class="divInput">
+          <div class="divSexe">
+            <p>Sexe:</p>
+            <input type="checkbox" id="homme" formControlName="homme">
+            <label for="homme">Homme</label>
+            <input type="checkbox" id="femme" formControlName="femme">
+            <label for="femme">Femme</label>
+            <input type="checkbox" id="autre" formControlName="autre">
+            <label for="autre">Autre</label>
+          </div>
+        </div>
+        
+        
+        <div class="divInput">
+          <input type="text" class="input" formControlName="phone" placeholder="Téléphone">
+        </div>
+        
+        <div class="divInput">
+          <input type="text" class="input" formControlName="email" placeholder="Email">
+        </div>
+        
+        <div class="divInput">
+          <input type="password" class="input" formControlName="password" placeholder="Mot de passe">
+        </div>
+        
+        <div class="divInput">
+          <input type="password" class="input" formControlName="confirm_password" placeholder="Confirmation mot de passe">
+        </div>
+        
+        <div class="divButton">
+          <button type="submit" class="btn" (click)="show()">S'inscrire</button>
+        </div>
+      
+    
+      </div>
+      
+      <!-- <pre><code>{{ registerForm.value | json }}</code></pre> -->
+    </form>
+  </div>
+</div>
+
+
+<div class="alert" *ngIf="first_name.touched && first_name.errors?.required">Le prénom est requis</div>
+<div class="alert" *ngIf="first_name.touched && first_name.errors?.cannotContainNumber">Le prénom ne doit pas contenir de numéro</div>
+
+<div class="alert" *ngIf="last_name.touched && last_name.errors?.required">Le nom est requis</div>
+<div class="alert" *ngIf="first_name.touched && last_name.errors?.cannotContainNumber">Le nom ne doit pas contenir de numéro</div>
+
+
+<div class="alert" *ngIf="phone.touched && phone.errors?.required">Le téléphone est requis</div>
+<div class="alert" *ngIf="phone.touched && phone.errors?.isANumber">Le numéro de téléphone ne peut pas contenir de lettre</div>
+<div class="alert" *ngIf="phone.touched && phone.errors?.cannotContainSpaces">Le numéro de téléphone ne doit pas contenir d'espace</div>
+<div class="alert" *ngIf="phone.touched && phone.errors?.startWithNumberZero">Le numéro de téléphone doit commencer par '0'</div>
+<div class="alert" *ngIf="phone.touched && phone.errors?.minlength || phone.errors?.maxlength">Le numéro de téléphone doit contenir 10 caractères</div>
+
+<div class="alert" *ngIf="email.touched && email.errors?.required">Le mail est requis</div>
+<div class="alert" *ngIf="email.touched && email.errors?.email || email.errors?.pattern">Le mail doit être valide</div>
+<!-- <div class="alert" *ngIf="email.touched && email.errors?.userNameExists">Cette email est déjà enregistré</div> -->
+
+<div class="alert" *ngIf="password.touched && password.errors?.required">Le mot de passe est requis est requis</div>
+
+<div class="alert" *ngIf="confirm_password.touched && confirm_password.errors?.required">La confirmation du mot de passe est requis</div>
+<div class="alert" *ngIf="confirm_password.touched && confirm_password.errors?.matchOther">Les mots de passe ne sont pas les mêmes</div>
+
