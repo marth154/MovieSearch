@@ -14,7 +14,6 @@ import { SerieByIdComponent } from './serie-by-id/serie-by-id.component';
 import { PeopleByIdComponent } from './people-by-id/people-by-id.component';
 import { MapGenrePipe } from './pipes/map-genre.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { AffichageRechercheComponent } from './affichage-recherche/affichage-recherche.component';
 import { CommentaireComponent } from './commentaire/commentaire.component';
