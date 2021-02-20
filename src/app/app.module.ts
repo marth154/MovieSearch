@@ -40,7 +40,7 @@ import { CommentaireComponent } from './commentaire/commentaire.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AffichageRechercheComponent]

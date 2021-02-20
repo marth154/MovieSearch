@@ -1,91 +1,386 @@
-.cardSignIn {
-    margin: 0% auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    height: 70%;
-    background-color: whitesmoke;
-    border-radius: 10px;
-}
+.signin_section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: #191c1f;
+  flex-direction: column;
+  overflow-y: hidden;
 
-.input {
-    border: none;
-    background-color: whitesmoke;
+  header {
+    width: 100%;
     height: 50px;
-    font-size: large;
-    border-bottom: grey solid 1px;
-}
-
-.left { 
-    float: left;
-    width: 50%;
-    height: 100%;
-    background-image: url('../../assets/netlfux.png');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-}
-
-.right { 
-    float: right;
-    width: 50%;
-    margin: 0 0 0 1rem;
-}
-
-.divInput {
-    margin-top: 3%;
-}
-
-.divButton {
-    margin-top: 5%;
-}
-
-.regular {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    color: #f83745;
-    padding-top: 7%;
-    text-align: center;
-}
-
-.btn {
-    color: white;
-    background-color: #f83745;
-    border: none;
-    width: 100px;
-    height: 40px;
-    border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 17px;
-    display: block;
-    margin : auto;
-}
-
-hr {
-    width: 3px;
-    height: 100%;
-}
-
-.alert {
-    margin: 0% auto;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    height: 50px;
-    background-color: rgba(255, 0, 0, 0.37);
-    border-radius: 8px;
+    justify-content: space-between;
 
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    color: white;
-    text-align: center;
+    .back_link {
+      font-family: "Poppins";
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #dadada;
+      margin: auto 1rem;
+      transition: color 0.5s;
+      -webkit-transition: color 0.5s;
+      -moz-transition: color 0.5s;
+      -ms-transition: color 0.5s;
+      -o-transition: color 0.5s;
+    }
+
+    .back_link:hover {
+      color: white;
+    }
+
+    .signin_logo {
+      color: white;
+      font-family: "Poppins";
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin: auto 1rem;
+    }
+  }
+
+  .signin_card {
+    margin: auto;
+    width: 60%;
+    height: 40%;
+    z-index: 1;
+  }
+
+  .input_section {
+    display: flex;
+    margin-bottom: 1rem;
+    height: fit-content;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-family: "Poppins";
+        color: white;
+
+        span {
+          color: #415361;
+          font-size: 0.7rem;
+        }
+      }
+
+      input[type="text"] {
+        width: 300px;
+        height: 40px;
+        color: #dadada;
+        outline: none;
+        margin-bottom: 0.5rem;
+        background-color: #20282e;
+        border-radius: 0.3rem;
+        border: 0;
+        box-shadow: inset -2px -3px 20px 1px rgb(0 0 0 / 20%);
+        font-family: "Poppins";
+      }
+    }
+
+    > div:not(:first-child) {
+      margin-left: 1rem;
+    }
+
+    [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+      position: absolute;
+      left: -9999px;
+    }
+
+    [type="checkbox"]:not(:checked) + label,
+    [type="checkbox"]:checked + label {
+      position: relative;
+      padding-left: 34px;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 14px;
+      padding-top: 3px;
+    }
+
+    [type="checkbox"]:not(:checked) + label:before,
+    [type="checkbox"]:checked + label:before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 0px;
+      width: 22px;
+      height: 22px;
+      border: 1px solid #cccccc14;
+      background: #20282e;
+      border-radius: 4px;
+      box-shadow: inset -2px -3px 20px 1px rgb(0 0 0 / 20%);
+    }
+
+    [type="checkbox"]:not(:checked) + label:after,
+    [type="checkbox"]:checked + label:after {
+      content: "⭕";
+      position: absolute;
+      top: 0px;
+      left: 5.5px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #ff0000;
+      transition: all 0.2s;
+    }
+
+    [type="checkbox"]:not(:checked) + label:after {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    [type="checkbox"]:checked + label:after {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    [type="checkbox"]:disabled:not(:checked) + label:before,
+    [type="checkbox"]:disabled:checked + label:before {
+      box-shadow: none;
+      border-color: #e42727;
+      background-color: #8b2525;
+    }
+
+    [type="checkbox"]:disabled:checked + label:after {
+      color: #e42727;
+    }
+
+    [type="checkbox"]:disabled + label {
+      color: #c04242;
+    }
+
+    [type="checkbox"]:checked:focus + label:before,
+    [type="checkbox"]:not(:checked):focus + label:before {
+      border: 2px dotted #20282e;
+    }
+  }
+
+  .checkbox_section {
+    height: 50px !important;
+  }
+
+  .signin-footer {
+    position: relative;
+    height: auto;
+    width: 100%;
+
+    svg:first-child {
+      position: absolute;
+    }
+  }
 }
 
-.divSexe {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: large;
-    color: grey;
+.required:after {
+  content: " *";
+  color: #f83745;
+}
+
+.form_error {
+  color: #f83745;
+  font-family: "Poppins";
+  font-size: 0.8rem;
+}
+
+.form_error.loader {
+  color: #f83745;
+  font-family: "Poppins";
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.signin_btn {
+  font-family: "Poppins";
+  font-weight: 700;
+  margin-top: 2rem;
+  width: 200px;
+  height: 40px;
+  color: #dadada;
+  outline: none;
+  margin-bottom: 0.5rem;
+  background-color: #f83745;
+  border-radius: 0.3rem;
+  border: 0;
+  box-shadow: inset -2px -3px 20px 1px rgb(0 0 0 / 20%);
+  cursor: pointer;
+}
+
+$spinnerSize: 30;
+
+svg.spinner {
+  width: $spinnerSize + px;
+  height: $spinnerSize + px;
+  x: 0px;
+  y: 0px;
+
+  circle {
+    fill: transparent;
+    stroke: #f83745;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: (3.14 * $spinnerSize);
+    -webkit-transform-origin: (0.5px * $spinnerSize) (0.5px * $spinnerSize) 0;
+    -moz-transform-origin: (0.5px * $spinnerSize) (0.5px * $spinnerSize) 0;
+    -ms-transform-origin: (0.5px * $spinnerSize) (0.5px * $spinnerSize) 0;
+    -o-transform-origin: (0.5px * $spinnerSize) (0.5px * $spinnerSize) 0;
+    transform-origin: (0.5px * $spinnerSize) (0.5px * $spinnerSize) 0;
+    -webkit-animation: spinner 2s linear infinite;
+    -moz-animation: spinner 2s linear infinite;
+    -ms-animation: spinner 2s linear infinite;
+    -o-animation: spinner 2s linear infinite;
+    animation: spinner 2s linear infinite;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .signin_card {
+    margin: auto 4rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .signin_section {
+    overflow-y: auto;
+  }
+
+  .signin_card {
+      margin-top: 3rem !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  .input_section {
+    flex-direction: column !important;
+
+    > div:not(:first-child) {
+      margin-left: 0 !important;
+    }
+  }
+
+  .input_section.checkbox_section {
+    flex-direction: row !important;
+    margin: auto !important;
+
+    div:not(:first-child) {
+      margin-left: 1rem !important;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+    .signin_card h1 {
+        font-size: 1.5rem !important;
+    }
+  .input_section {
+    > div {
+      label {
+        font-family: "Poppins";
+        color: white;
+        font-size: 0.8rem !important;
+
+        span {
+          color: #415361;
+          font-size: 0.6rem !important;
+        }
+      }
+
+      input[type="text"] {
+        width: 100% !important;
+      }
+    }
+  }
+
+  .input_section.checkbox_section {
+    flex-direction: column !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .input_section.checkbox_section div:not(:first-child) {
+    margin-left: 0 !important;
+  }
+}
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    stroke-dashoffset: (0.66 * $spinnerSize);
+  }
+
+  50% {
+    -webkit-transform: rotate(720deg);
+    stroke-dashoffset: (3.14 * $spinnerSize);
+  }
+
+  100% {
+    -webkit-transform: rotate(1080deg);
+    stroke-dashoffset: (0.66 * $spinnerSize);
+  }
+}
+
+@-moz-keyframes spinner {
+  0% {
+    -moz-transform: rotate(0deg);
+    stroke-dashoffset: (0.66 * $spinnerSize);
+  }
+
+  50% {
+    -moz-transform: rotate(720deg);
+    stroke-dashoffset: (3.14 * $spinnerSize);
+  }
+
+  100% {
+    -moz-transform: rotate(1080deg);
+    stroke-dashoffset: (0.66 * $spinnerSize);
+  }
+}
+
+@-ms-keyframes spinner {
+  0% {
+    -ms-transform: rotate(0deg);
+    stroke-dashoffset: (0.66 * $spinnerSize);
+  }
+
+  50% {
+    -ms-transform: rotate(720deg);
+    stroke-dashoffset: (3.14 * $spinnerSize);
+  }
+
+  100% {
+    -ms-transform: rotate(1080deg);
+    stroke-dashoffset: (0.66 * $spinnerSize);
+  }
+}
+
+@-o-keyframes spinner {
+  0% {
+    -o-transform: rotate(0deg);
+    stroke-dashoffset: (0.66 * $spinnerSize);
+  }
+
+  50% {
+    -o-transform: rotate(720deg);
+    stroke-dashoffset: (3.14 * $spinnerSize);
+  }
+
+  100% {
+    -o-transform: rotate(1080deg);
+    stroke-dashoffset: (0.66 * $spinnerSize);
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+    stroke-dashoffset: (0.66 * $spinnerSize);
+  }
+
+  50% {
+    transform: rotate(720deg);
+    stroke-dashoffset: (3.14 * $spinnerSize);
+  }
+
+  100% {
+    transform: rotate(1080deg);
+    stroke-dashoffset: (0.66 * $spinnerSize);
+  }
 }
