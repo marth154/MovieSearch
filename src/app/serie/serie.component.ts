@@ -25,21 +25,21 @@ export class SerieComponent implements OnInit {
     this.requestApiGenresService.findAllGenresSeries().subscribe(x => this.genresSerie = x.genres);
   }
 
-  toggle() {
-    this.isOpen = !this.isOpen
+  toggle(): void {
+    this.isOpen = !this.isOpen;
     document.body.style.overflowY = this.isOpen ? 'hidden' : 'initial';
   }
 
-  openModalInformation(id:number) {
+  openModalInformation(id: number): void {
     this.requestApiSerieService.findSerieById(id).subscribe((serie: Serie) => this.serieById = serie);
     this.toggle();
   }
-  
-  closeModalInformation() {
+
+  closeModalInformation(): void {
     this.toggle();
   }
 
-  searchByGenre(id: number) {
-    this.requestApiSerieService.findSerieByGenre(id).subscribe(x => this.series = x.results)
+  searchByGenre(id: number): void {
+    this.requestApiSerieService.findSerieByGenre(id).subscribe(x => this.series = x.results);
   }
 }

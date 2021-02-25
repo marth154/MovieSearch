@@ -19,18 +19,18 @@ export class PeopleComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggle() {
-    this.isOpen = !this.isOpen
+  toggle(): void {
+    this.isOpen = !this.isOpen;
     document.body.style.overflowY = this.isOpen ? 'hidden' : 'initial';
   }
 
-  openModalInformation(id:number) {
+  openModalInformation(id: number): void {
     this.requestApiPeopleService.findPeopleById(id).subscribe((people: People) => this.peopleById = people);
-    this.toggle()
+    this.toggle();
   }
-  
-  closeModalInformation() {
-    this.toggle()
+
+  closeModalInformation(): void {
+    this.toggle();
   }
 
 }

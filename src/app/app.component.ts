@@ -11,7 +11,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'MovieSearch';
   searching = 'movie';
   searchInput: string;
@@ -23,7 +23,7 @@ export class AppComponent {
 
   series: Serie[];
 
-  constructor(private requestApiMoviesService: RequestApiMoviesService, 
+  constructor(private requestApiMoviesService: RequestApiMoviesService,
               private requestApiPeopleService: RequestApiPeopleService,
               private requestApiSerieService: RequestApiSerieService,
               private el: ElementRef) {
@@ -35,70 +35,70 @@ export class AppComponent {
     this.requestApiPeopleService.getPopularPeople().subscribe((peoples: People[]) => this.peoples = peoples);
   }
 
-  searchResult() {
-    this.activeSearch = "";
-    if(this.searching === "movie") {
-      this.requestApiMoviesService.findAllMoviesByKeyword(this.searchInput).subscribe((movies: Movie[]) => this.movies = movies)
+  searchResult(): void {
+    this.activeSearch = '';
+    if (this.searching === 'movie') {
+      this.requestApiMoviesService.findAllMoviesByKeyword(this.searchInput).subscribe((movies: Movie[]) => this.movies = movies);
     }
-    if (this.searching === "person") {
-      this.requestApiPeopleService.findAllPeopleByKeyword(this.searchInput).subscribe((peoples: People[]) => this.peoples = peoples)
+    if (this.searching === 'person') {
+      this.requestApiPeopleService.findAllPeopleByKeyword(this.searchInput).subscribe((peoples: People[]) => this.peoples = peoples);
     }
-    if (this.searching === "tv") {
-      this.requestApiSerieService.findAllSerieByKeyword(this.searchInput).subscribe((series: Serie[]) => this.series = series)
+    if (this.searching === 'tv') {
+      this.requestApiSerieService.findAllSerieByKeyword(this.searchInput).subscribe((series: Serie[]) => this.series = series);
     }
   }
 
-  getPopularMovies() {
-    this.searching = "movie";
-    this.activeSearch = "popularMovies";
-    this.requestApiMoviesService.getPopularMovies().subscribe((movies: Movie[]) => this.movies = movies)
+  getPopularMovies(): void {
+    this.searching = 'movie';
+    this.activeSearch = 'popularMovies';
+    this.requestApiMoviesService.getPopularMovies().subscribe((movies: Movie[]) => this.movies = movies);
   }
 
-  getTopRatedMovies() {
-    this.searching = "movie";
-    this.activeSearch = "topRatedMovies";
-    this.requestApiMoviesService.getTopRatedMovies().subscribe((movies: Movie[]) => this.movies = movies)
+  getTopRatedMovies(): void {
+    this.searching = 'movie';
+    this.activeSearch = 'topRatedMovies';
+    this.requestApiMoviesService.getTopRatedMovies().subscribe((movies: Movie[]) => this.movies = movies);
   }
 
-  getNowMovies() {
-    this.searching = "movie";
-    this.activeSearch = "nowMovies";
-    this.requestApiMoviesService.getNowMovies().subscribe((movies: Movie[]) => this.movies = movies)
+  getNowMovies(): void {
+    this.searching = 'movie';
+    this.activeSearch = 'nowMovies';
+    this.requestApiMoviesService.getNowMovies().subscribe((movies: Movie[]) => this.movies = movies);
   }
 
-  getUpcomingMovies() {
-    this.searching = "movie";
-    this.activeSearch = "upcomingMovies";
-    this.requestApiMoviesService.getUpcomingMovies().subscribe((movies: Movie[]) => this.movies = movies)
+  getUpcomingMovies(): void {
+    this.searching = 'movie';
+    this.activeSearch = 'upcomingMovies';
+    this.requestApiMoviesService.getUpcomingMovies().subscribe((movies: Movie[]) => this.movies = movies);
   }
 
-  getPopularSeries() {
-    this.searching = "tv";
-    this.activeSearch = "popularSeries";
-    this.requestApiSerieService.getPopularSeries().subscribe((series: Serie[]) => this.series = series)
+  getPopularSeries(): void {
+    this.searching = 'tv';
+    this.activeSearch = 'popularSeries';
+    this.requestApiSerieService.getPopularSeries().subscribe((series: Serie[]) => this.series = series);
   }
 
-  getTopRatedSeries() {
-    this.searching = "tv";
-    this.activeSearch = "topRatedSeries";
-    this.requestApiSerieService.getTopRatedSeries().subscribe((series: Serie[]) => this.series = series)
+  getTopRatedSeries(): void {
+    this.searching = 'tv';
+    this.activeSearch = 'topRatedSeries';
+    this.requestApiSerieService.getTopRatedSeries().subscribe((series: Serie[]) => this.series = series);
   }
 
-  getAiringTodaySeries() {
-    this.searching = "tv";
-    this.activeSearch = "airingTodaySeries";
-    this.requestApiSerieService.getAiringTodaySeries().subscribe((series: Serie[]) => this.series = series)
+  getAiringTodaySeries(): void {
+    this.searching = 'tv';
+    this.activeSearch = 'airingTodaySeries';
+    this.requestApiSerieService.getAiringTodaySeries().subscribe((series: Serie[]) => this.series = series);
   }
 
-  getAiringNowSeries() {
-    this.searching = "tv";
-    this.activeSearch = "airingNowSeries";
-    this.requestApiSerieService.getAiringNowSeries().subscribe((series: Serie[]) => this.series = series)
+  getAiringNowSeries(): void {
+    this.searching = 'tv';
+    this.activeSearch = 'airingNowSeries';
+    this.requestApiSerieService.getAiringNowSeries().subscribe((series: Serie[]) => this.series = series);
   }
 
-  getPopularPeoples() {
-    this.searching = "person";
-    this.activeSearch = "popularPeoples";
-    this.requestApiPeopleService.getPopularPeople().subscribe((peoples: People[]) => this.peoples = peoples)
+  getPopularPeoples(): void {
+    this.searching = 'person';
+    this.activeSearch = 'popularPeoples';
+    this.requestApiPeopleService.getPopularPeople().subscribe((peoples: People[]) => this.peoples = peoples);
   }
 }

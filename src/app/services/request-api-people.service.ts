@@ -17,16 +17,16 @@ export class RequestApiPeopleService {
   findAllPeopleByKeyword(keyword: string): Observable<People[]> {
     return this.http.get<AllPeople>(`${this.apiUrl}search/person?api_key=${this.key}&query=${keyword}`).pipe(
       map((allPeople: AllPeople) => allPeople.results)
-    )
+    );
   }
 
   findPeopleById(id: number): Observable<People> {
-    return this.http.get<People>(`${this.apiUrl}person/${id}?api_key=${this.key}`) 
+    return this.http.get<People>(`${this.apiUrl}person/${id}?api_key=${this.key}`);
   }
 
   getPopularPeople(): Observable<People[]> {
     return this.http.get<AllPeople>(`${this.apiUrl}person/popular?api_key=${this.key}&language=fr-FR`).pipe(
       map((allPeople: AllPeople) => allPeople.results)
-    )
+    );
   }
 }

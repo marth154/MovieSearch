@@ -4,8 +4,8 @@ export interface AllSeries {
     total_pages: number;
     total_results: number;
   }
-  
- export interface Serie {
+
+export interface Serie {
   backdrop_path: string;
   created_by: Createdby[];
   episode_run_time: number[];

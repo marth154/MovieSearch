@@ -1,12 +1,12 @@
 import {FormControl} from '@angular/forms';
 
 
-export function PasswordValidator (otherControlName: string) {
+export function PasswordValidator(otherControlName: string): (control: FormControl) => { matchOther: boolean; } {
 
   let thisControl: FormControl;
   let otherControl: FormControl;
 
-  return function matchOtherValidate (control: FormControl) {
+  return function matchOtherValidate(control: FormControl): { matchOther: boolean; } {
 
     if (!control.parent) {
       return null;
@@ -36,6 +36,6 @@ export function PasswordValidator (otherControlName: string) {
 
     return null;
 
-  }
+  };
 
 }

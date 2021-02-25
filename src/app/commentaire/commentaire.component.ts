@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-commentaire',
@@ -10,8 +10,8 @@ export class CommentaireComponent implements OnInit {
 
   commentForm: FormGroup;
 
-  get comments(){
-    return (this.commentForm.get('comments') as FormArray).controls
+  get comments(): AbstractControl[]{
+    return (this.commentForm.get('comments') as FormArray).controls;
   }
 
   constructor(private fb: FormBuilder) { }
@@ -19,11 +19,11 @@ export class CommentaireComponent implements OnInit {
   ngOnInit(): void {
     this.commentForm = this.fb.group({
       comments: new FormArray([])
-    })
+    });
   }
 
-  addComment(comment: string) {
-    if(comment.length != 0) {
+  addComment(comment: string): void {
+    if (comment.length !== 0) {
       this.comments.push(new FormControl(comment));
     }
   }

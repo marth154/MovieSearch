@@ -13,11 +13,10 @@ export class EmailValidators {
     static isExist(emailApi: RequestEmailApiService): AsyncValidatorFn {
       return (control: AbstractControl): Observable<ValidationErrors> => {
         return emailApi.findEmail(control.value as string).pipe(
-          map((email: Email) => { 
+          map((email: Email) => {
               return email.smtp_check ? null : { isExist: true };
             })
         );
       };
     }
-  
 }

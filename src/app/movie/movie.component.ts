@@ -13,13 +13,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MovieComponent implements OnInit {
   @Input() movies: Movie[];
-  
+
   movieById: Movie;
   genresMovie: Genre[];
   isOpen = false;
 
-  toggle() {
-    this.isOpen = !this.isOpen
+  toggle(): void {
+    this.isOpen = !this.isOpen;
     document.body.style.overflowY = this.isOpen ? 'hidden' : 'initial';
   }
 
@@ -29,16 +29,16 @@ export class MovieComponent implements OnInit {
     this.requestApiGenresService.findAllGenresMovie().subscribe(x => this.genresMovie = x.genres);
   }
 
-  openModalInformation(id: number) {
+  openModalInformation(id: number): void {
     this.requestApiMoviesService.findMoviesById(id).subscribe((movie: Movie) => this.movieById = movie);
-    this.toggle()
-  }
-  
-  closeModalInformation() {
-    this.toggle()
+    this.toggle();
   }
 
-  searchByGenre(id: number) {
-    this.requestApiMoviesService.findMovieByGenre(id).subscribe(x => this.movies = x.results)
+  closeModalInformation(): void {
+    this.toggle();
+  }
+
+  searchByGenre(id: number): void {
+    this.requestApiMoviesService.findMovieByGenre(id).subscribe(x => this.movies = x.results);
   }
 }

@@ -10,10 +10,10 @@ import { Genre } from '../model/genres.model';
 })
 export class MovieByIdComponent implements OnInit {
   @Input() movie: Movie;
-  
+
   isOpen = false;
   genresMovie: Genre[];
-  
+
   constructor(private requestApiGenresService: RequestApiGenresService) { }
 
   ngOnInit(): void {

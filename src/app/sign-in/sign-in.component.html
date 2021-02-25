@@ -12,15 +12,15 @@
         <div>
           <label for="first_name" class="required">Prénom</label>
           <input type="text" formControlName="first_name" name="first_name">
-          <div class="form_error regular" *ngIf="first_name.touched && first_name.errors?.required">Le prénom est requis</div>
-          <div class="form_error regular" *ngIf="first_name.touched && first_name.errors?.cannotContainNumber">Le prénom
+          <div class="form_error regular" *ngIf="first_name['touched'] && first_name['errors']?.required">Le prénom est requis</div>
+          <div class="form_error regular" *ngIf="first_name['touched'] && first_name['errors']?.cannotContainNumber">Le prénom
             ne doit pas contenir de numéro</div>
         </div>
         <div>
           <label for="last_name" class="required">Nom</label>
           <input type="text" formControlName="last_name" name="last_name">
-          <div class="form_error regular" *ngIf="last_name.touched && last_name.errors?.required">Le nom est requis</div>
-          <div class="form_error regular" *ngIf="last_name.touched && last_name.errors?.cannotContainNumber">Le nom ne doit pas
+          <div class="form_error regular" *ngIf="last_name['touched'] && last_name['errors']?.required">Le nom est requis</div>
+          <div class="form_error regular" *ngIf="last_name['touched'] && last_name['errors']?.cannotContainNumber">Le nom ne doit pas
             contenir de numéro</div>
         </div>
       </div>
@@ -42,42 +42,42 @@
         <div>
           <label for="phone" class="required">Téléphone</label>
           <input type="text" formControlName="phone" name="phone">
-          <div class="form_error regular" *ngIf="phone.touched && phone.errors?.required">Le téléphone est requis</div>
-          <div class="form_error regular" *ngIf="phone.touched && phone.errors?.isANumber">Le numéro ne peut pas
+          <div class="form_error regular" *ngIf="phone['touched'] && phone['errors']?.required">Le téléphone est requis</div>
+          <div class="form_error regular" *ngIf="phone['touched'] && phone['errors']?.isANumber">Le numéro ne peut pas
             contenir de lettre</div>
-          <div class="form_error regular" *ngIf="phone.touched && phone.errors?.cannotContainSpaces">Le numéro ne doit
+          <div class="form_error regular" *ngIf="phone['touched'] && phone['errors']?.cannotContainSpaces">Le numéro ne doit
             pas contenir d'espace</div>
-          <div class="form_error regular" *ngIf="phone.touched && phone.errors?.startWithNumberZero">Le numéro doit
+          <div class="form_error regular" *ngIf="phone['touched'] && phone['errors']?.startWithNumberZero">Le numéro doit
             commencer par '0'</div>
-          <div class="form_error regular" *ngIf="phone.touched && phone.errors?.minlength || phone.errors?.maxlength">Le numéro doit contenir 10 caractères</div>
+          <div class="form_error regular" *ngIf="phone['touched'] && phone['errors']?.minlength || phone['errors']?.maxlength">Le numéro doit contenir 10 caractères</div>
         </div>
         <div>
           <label for="email" class="required">Email</label>
           <input type="text" formControlName="email" name="email">
-          <div class="form_error regular" *ngIf="email.touched && email.errors?.required">Le mail est requis</div>
-          <div class="form_error regular" *ngIf="email.touched && email.errors?.email || email.errors?.pattern">Le mail doit être
+          <div class="form_error regular" *ngIf="email['touched'] && email['errors']?.required">Le mail est requis</div>
+          <div class="form_error regular" *ngIf="email['touched'] && email['errors']?.email || email['errors']?.pattern">Le mail doit être
             valide</div>
-          <div class="form_error loader" *ngIf="email.status === 'PENDING'">
+          <div class="form_error loader" *ngIf="email['status'] === 'PENDING'">
             <svg class="spinner">
               <circle cx="15" cy="15" r="10"></circle>
             </svg>
             Vérification de l'email...
           </div>
-          <div class="form_error regular" *ngIf="email.touched && email.errors?.isExist">Cet email n'existe pas</div>
+          <div class="form_error regular" *ngIf="email['touched'] && email['errors']?.isExist">Cet email n'existe pas</div>
         </div>
       </div>
       <div class="input_section">
         <div>
           <label for="password" class="required">Mot de passe</label>
           <input type="text" formControlName="password" name="password">
-          <div class="form_error regular" *ngIf="password.touched && password.errors?.required">Le mot de passe est requis est requis</div>
+          <div class="form_error regular" *ngIf="password['touched'] && password['errors']?.required">Le mot de passe est requis est requis</div>
         </div>
         <div>
           <label for="confirm_password" class="required">Mot de passe <span>(confirmation)</span></label>
           <input type="text" formControlName="confirm_password" name="confirm_password">
-          <div class="form_error regular" *ngIf="confirm_password.touched && confirm_password.errors?.required">La
+          <div class="form_error regular" *ngIf="confirm_password['touched'] && confirm_password['errors']?.required">La
             confirmation du mot de passe est requis</div>
-          <div class="form_error regular" *ngIf="confirm_password.touched && confirm_password.errors?.matchOther">Les
+          <div class="form_error regular" *ngIf="confirm_password['touched'] && confirm_password['errors']?.matchOther">Les
             mots de passe ne sont pas les mêmes</div>
         </div>
       </div>

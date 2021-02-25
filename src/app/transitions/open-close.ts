@@ -10,4 +10,4 @@ export const OpenCloseTransition = [
         animate(100, style({ transform: 'scale3d(.0, .0, .0)' }))
       ])
     ])
-  ]
+  ];

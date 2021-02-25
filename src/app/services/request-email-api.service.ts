@@ -14,7 +14,7 @@ export class RequestEmailApiService {
   constructor(private http: HttpClient) { }
 
   findEmail(email: string): Observable<Email> {
-    return this.http.get<Email>(`${this.apiUrl}?access_key=${this.key}&email=${email}`)
+    return this.http.get<Email>(`${this.apiUrl}?access_key=${this.key}&email=${email}`);
   }
 
 }

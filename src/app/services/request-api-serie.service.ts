@@ -17,38 +17,38 @@ export class RequestApiSerieService {
   findAllSerieByKeyword(keyword: string): Observable<Serie[]> {
     return this.http.get<AllSeries>(`${this.apiUrl}search/tv?api_key=${this.key}&query=${keyword}`).pipe(
       map((allSeries: AllSeries) => allSeries.results)
-    )
+    );
   }
 
   findSerieById(id: number): Observable<Serie> {
-    return this.http.get<Serie>(`${this.apiUrl}tv/${id}?api_key=${this.key}`) 
+    return this.http.get<Serie>(`${this.apiUrl}tv/${id}?api_key=${this.key}`);
   }
 
   findSerieByGenre(id: number): Observable<AllSeries> {
-    return this.http.get<AllSeries>(`${this.apiUrl}discover/tv?api_key=${this.key}&with_genres=${id}`)
+    return this.http.get<AllSeries>(`${this.apiUrl}discover/tv?api_key=${this.key}&with_genres=${id}`);
   }
 
   getPopularSeries(): Observable<Serie[]>{
     return this.http.get<AllSeries>(`${this.apiUrl}tv/popular?api_key=${this.key}`).pipe(
       map((allSeries: AllSeries) => allSeries.results)
-    )
+    );
   }
 
   getTopRatedSeries(): Observable<Serie[]>{
     return this.http.get<AllSeries>(`${this.apiUrl}tv/top_rated?api_key=${this.key}`).pipe(
       map((allSeries: AllSeries) => allSeries.results)
-    )
+    );
   }
 
   getAiringTodaySeries(): Observable<Serie[]>{
     return this.http.get<AllSeries>(`${this.apiUrl}tv/airing_today?api_key=${this.key}`).pipe(
       map((allSeries: AllSeries) => allSeries.results)
-    )
+    );
   }
 
   getAiringNowSeries(): Observable<Serie[]>{
     return this.http.get<AllSeries>(`${this.apiUrl}tv/on_the_air?api_key=${this.key}`).pipe(
       map((allSeries: AllSeries) => allSeries.results)
-    )
+    );
   }
 }
