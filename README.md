@@ -1,6 +1,6 @@
 ## To access at the website
 
-Follow the link `https://netfluxx.tk/`
+Write `netfluxx.tk` in the search bar of a browser or follow the link `https://netfluxx.tk/`.
 
 ## MovieSearch
 
